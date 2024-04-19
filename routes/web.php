@@ -19,11 +19,15 @@ use App\Http\Controllers\UserController;
 
 Auth::routes();
 
+
 Route::get('/', [BooksController::class, 'index'])->name('books.index');
-Route::get('/show/{id}', [BooksController::class, 'show'])->name('book.show');
+
+Route::prefix('books')->group(function () {   
+    Route::get('/show/{id}', [BooksController::class, 'show'])->name('book.show');
+});
+
 
 Route::middleware('auth')->group(function () {
-
     //本棚管理
     Route::prefix('books')->group(function () {        
         Route::get('/create', [BooksController::class, 'create'])->name('book.create');

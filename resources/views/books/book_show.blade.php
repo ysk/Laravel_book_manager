@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
@@ -16,7 +16,12 @@
 
                     <!-- コンテンツ -->
                     <div class="book-details">
-                        <h4>書籍詳細</h4>
+                        <h4>{{ $book->user->name }}さんが投稿した書籍詳細</h4>
+
+
+                        <img src="https://placehold.jp/100x120.png" alt="ダミー画像" class="img-thumbnail">
+
+                        
                         <table class="table">
                             <tr>
                                 <th>ID</th>
@@ -27,16 +32,17 @@
                                 <td>{{ $book->item_name }}</td>
                             </tr>
                             <tr>
-                                <th>書籍の番号</th>
-                                <td>{{ $book->item_number }}</td>
+                                <th>価格</th>
+                                <td>{{ $book->item_amount }}円</td>
                             </tr>
                             <tr>
-                                <th>書籍の価格</th>
-                                <td>{{ $book->item_amount }}</td>
+                                <th>発売日</th>
+                                <td>{{ $book->published->format('Y年m月d日') }}</td>
                             </tr>
+
                             <tr>
-                                <th>書籍の出版日時</th>
-                                <td>{{ $book->published }}</td>
+                                <th>レビュー</th>
+                                <td>{{ $book->item_review }}</td>
                             </tr>
                         </table>
                         <div class="form-buttons text-center">
