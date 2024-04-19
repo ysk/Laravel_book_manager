@@ -3,7 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BooksController;
-use App\Http\Controllers\MypageController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -24,6 +24,7 @@ Route::get('/show/{id}', [BooksController::class, 'show'])->name('book.show');
 
 Route::middleware('auth')->group(function () {
 
+    //本棚管理
     Route::prefix('books')->group(function () {        
         Route::get('/create', [BooksController::class, 'create'])->name('book.create');
         Route::post('/store', [BooksController::class, 'store'])->name('book.store');
@@ -31,8 +32,11 @@ Route::middleware('auth')->group(function () {
         Route::post('/update/{id}', [BooksController::class, 'update'])->name('book.update');
         Route::post('/destroy/{id}', [BooksController::class, 'destroy'])->name('book.destroy');
     });
+
+    //ユーザー管理
     Route::prefix('mypage')->group(function () {
-        Route::get('/show/{id}', [MypageController::class, 'show'])->name('profile.show');
+        Route::get('/show/{id}', [UserController::class, 'show'])->name('profile.show');
     });
+
 });
 
