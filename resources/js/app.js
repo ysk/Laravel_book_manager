@@ -5,7 +5,7 @@
  */
 
 import './bootstrap';
-//import './common';
+import './common';
 import { createApp } from 'vue';
 
 

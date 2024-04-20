@@ -45,7 +45,8 @@
                                 <tr>
                                     <td>{{ $book->id }}</td>
                                     <td>{{ $book->user->name }}</td>
-                                    <td>                                    <div class="thumbnail">
+                                    <td>
+                                    <div class="thumbnail">
                                         <img src="https://placehold.jp/100x120.png" alt="ダミー画像" class="img-thumbnail">
                                     </div></td>
                                     <td><a href="{{ route('book.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a></td>
