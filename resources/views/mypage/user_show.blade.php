@@ -65,7 +65,7 @@
                                         <td>
                                             <form method="POST" action="{{ route('book.destroy', ['id' => $book->id]) }}">
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger">削除</button>
+                                                <button type="button" class="btn btn-danger js-delete">削除</button>
                                             </form>
                                         </td>
                                     @endif

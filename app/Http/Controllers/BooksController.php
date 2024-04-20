@@ -7,13 +7,15 @@ use App\Http\Requests\BookRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Book;
+use Illuminate\Support\Facades\Mail;
+use App\Jobs\SendTestMailJob;
 
 class BooksController extends Controller
 {
 
     public function __construct()
     {
-        //
+        
     }
 
     /**
@@ -74,7 +76,7 @@ class BooksController extends Controller
     {
         $books = Book::find($request->id);
         $book->fill($request->validated());
-        $book->update();
+        $book->save();
         return redirect('/')->with('message','書籍を更新しました');
     }
 

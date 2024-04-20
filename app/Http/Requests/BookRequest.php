@@ -8,12 +8,18 @@ class BookRequest extends FormRequest
 {
     public function rules(): array
     {
-        return [
-            'item_name' => 'required',
-            'item_number' => 'required',
-            'item_amount' => 'required',
-            'published' => 'required',
+
+        $rules =  [
+            'user_id' => 'integer',
+            'item_name' => 'required|string',
+            'item_number' => 'integer',
+            'item_amount' => 'integer',
+            'published' => 'date',
         ];
+
+        return $rules;
+
+        
     }
 }
 

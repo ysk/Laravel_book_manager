@@ -5,7 +5,10 @@
  */
 
 import './bootstrap';
+//import './common';
 import { createApp } from 'vue';
+
+
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin

@@ -8,10 +8,13 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+
+                    @if ($errors->any())
+                    <div class="alert alert-danger">    
+                        @foreach ($errors->all() as $error)
+                            <div>{{ $error }}</div>
+                        @endforeach
+                    </div>
                     @endif
 
                     <!-- コンテンツ -->
@@ -47,6 +50,7 @@
                                 <a href="{{ route('books.index') }}" class="btn btn-secondary" style="margin-right: 20px">戻る</a>
                                 <button type="submit" class="btn btn-primary">更新</button>
                             </div>
+                            <input type="text" name="user_id" value="{{ $book->user_id }}">
                         </form>
                     </div>
                     <!-- // コンテンツ -->

@@ -8,13 +8,17 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <!-- コンテンツ -->
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                     @endif
 
-                    <!-- コンテンツ -->
                     @if (session('message'))
                         <div class="alert alert-success">
                             {{ session('message') }}
@@ -45,7 +49,7 @@
                                         <img src="https://placehold.jp/100x120.png" alt="ダミー画像" class="img-thumbnail">
                                     </div></td>
                                     <td><a href="{{ route('book.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a></td>
-                                    <td>{{ $book->item_amount }}円</td>
+                                    <td>{{ number_format($book->item_amount)}} 円</td>
                                     <td>{{ $book->published->format('Y年m月d日') }}</td>
                                     <td>{{ $book->item_review }}</td>
                                     @if (Auth::check())
@@ -53,7 +57,7 @@
                                         <td>
                                             <form method="POST" action="{{ route('book.destroy', ['id' => $book->id]) }}">
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger">削除</button>
+                                                <button type="button" class="btn btn-danger js-delete">削除</button>
                                             </form>
                                         </td>
                                     @endif
@@ -62,7 +66,7 @@
                         </tbody>
                     </table>
                     <!-- // コンテンツ -->
-                    <<div class="pagination justify-content-center mt-3">
+                    <div class="pagination justify-content-center mt-3">
                         {{ $books->links() }}
                     </div>
 
