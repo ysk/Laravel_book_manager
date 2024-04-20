@@ -28,16 +28,15 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>#</th>
                                 <th>投稿者</th>
+                                <th></th>
                                 <th>書籍名</th>
                                 <th>金額</th>
                                 <th>発売日</th>
                                 <th>書評</th>
-                                @if (Auth::check())
-                                    <th>編集</th>
-                                    <th>削除</th>
-                                @endif
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -53,15 +52,19 @@
                                     <td>{{ number_format($book->item_amount)}} 円</td>
                                     <td>{{ $book->published->format('Y年m月d日') }}</td>
                                     <td>{{ $book->item_review }}</td>
-                                    @if (Auth::check())
-                                        <td><a href="{{ route('book.edit', ['id' => $book->id]) }}" class="btn btn-secondary">編集</a></td>
-                                        <td>
+                                    <td>
+                                        @if (Auth::id()==$book->user->id)
+                                            <a href="{{ route('book.edit', ['id' => $book->id]) }}" class="btn btn-secondary">編集</a>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if (Auth::id()==$book->user->id)
                                             <form method="POST" action="{{ route('book.destroy', ['id' => $book->id]) }}">
                                                 @csrf
                                                 <button type="button" class="btn btn-danger js-delete">削除</button>
                                             </form>
-                                        </td>
-                                    @endif
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
