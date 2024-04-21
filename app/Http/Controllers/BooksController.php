@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\BookRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\BookRequest;
+use App\Jobs\SendTestMailJob;
 use App\Models\User;
 use App\Models\Book;
-use Illuminate\Support\Facades\Mail;
-use App\Jobs\SendTestMailJob;
+use App\Models\Category;
 
 class BooksController extends Controller
 {
@@ -23,12 +24,13 @@ class BooksController extends Controller
      */
     public function index()
     {
-        $books = Book::orderBy('created_at')->paginate(5);
-        return view('books.book_index', 
+        $books = Book::with('category')->orderBy('created_at')->paginate(5);
+        return view(
+            'books.book_index',
             ['books' => $books]
         );
-
     }
+    
     
     /**
      * Show the form for creating a new resource.

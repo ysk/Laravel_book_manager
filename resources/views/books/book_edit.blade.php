@@ -50,6 +50,11 @@
                                 <a href="{{ route('books.index') }}" class="btn btn-secondary" style="margin-right: 20px">戻る</a>
                                 <button type="submit" class="btn btn-primary">更新</button>
                             </div>
+
+                            <select name="category_id">
+                                <option value="1" selected>プログラミング言語</option>
+                                <option value="2">プログラミング言語</option>
+                            </select>
                             <input type="text" name="user_id" value="{{ $book->user_id }}">
                         </form>
                     </div>

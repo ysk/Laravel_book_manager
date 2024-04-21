@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use App\Models\Book;
+use App\Models\Category;
 
 class UserController extends Controller
 {

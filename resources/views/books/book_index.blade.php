@@ -28,12 +28,14 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>投稿者</th>
+                                {{-- <th>#</th> --}}
+                                
                                 <th></th>
                                 <th>書籍名</th>
+                                <th>カテゴリ</th>
                                 <th>金額</th>
                                 <th>発売日</th>
+                                <th>投稿者</th>
                                 <th>書評</th>
                                 <th></th>
                                 <th></th>
@@ -42,15 +44,19 @@
                         <tbody>
                             @foreach ($books as $book)
                                 <tr>
-                                    <td>{{ $book->id }}</td>
-                                    <td>{{ $book->user->name }}</td>
+                                    {{-- <td>{{ $book->id }}</td> --}}
+                                   
                                     <td>
-                                    <div class="thumbnail">
-                                        <img src="https://placehold.jp/100x120.png" alt="ダミー画像" class="img-thumbnail">
-                                    </div></td>
+                                        <div class="thumbnail">
+                                            <img src="https://placehold.jp/100x120.png" alt="ダミー画像" class="img-thumbnail">
+                                        </div></td>
                                     <td><a href="{{ route('book.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a></td>
+                                    <td>{{ $book->category ? $book->category->name : '-' }}</td>
+
+
                                     <td>{{ number_format($book->item_amount)}} 円</td>
                                     <td>{{ $book->published->format('Y年m月d日') }}</td>
+                                    <td>{{ $book->user->name }}</td>
                                     <td>{{ $book->item_review }}</td>
                                     <td>
                                         @if (Auth::id()==$book->user->id)
