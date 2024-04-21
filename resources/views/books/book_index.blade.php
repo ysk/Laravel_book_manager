@@ -5,8 +5,21 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span>{{ __('Dashboard') }}</span>
+                        <form action="{{-- route('book.search') --}}" method="GET" style="display: flex;">
+                            <div class="form-group mr-2">
+                                <input type="text" class="form-control" name="query" placeholder="検索">
+                            </div>
+                            <button type="submit" class="btn btn-primary">検索</button>
+                        </form>
+                    </div>
+                </div>
+                
+                
+                
                 <div class="card-body">
                     <!-- コンテンツ -->
                     @if ($errors->any())
