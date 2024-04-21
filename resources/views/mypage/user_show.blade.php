@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">マイページ</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -17,24 +17,22 @@
                     <!-- コンテンツ -->
                     <h4>{{ $user->name }}さんの読書履歴</h4>
 
-
-
                     @if(isset($user->userprof->user_id))
-
                     <table class="table"><tr>
-
-                    <tr>
-                        <th>住所</th><td> {{$user->userprof->address}}</td>
                         <tr>
-                    </tr>
-                    <tr>
-                        <th>電話番号</th><td> {{$user->userprof->phone}}</td>
-                    </tr>
-                    <tr>
-                        <th>GitHub</th><td> {{$user->userprof->github_url}}</td>
-
-                </tr>
-            </thead>
+                            <th>住所</th>
+                            <td> {{$user->userprof->address}}</td>
+                        <tr>
+                        </tr>
+                        <tr>
+                            <th>電話番号</th>
+                            <td> {{$user->userprof->phone}}</td>
+                        </tr>
+                        <tr>
+                            <th>GitHub</th>
+                            <td> {{$user->userprof->github_url}}</td>
+                        </tr>
+                    </thead>
                     @endif
                     <table class="table">
                         <thead>
