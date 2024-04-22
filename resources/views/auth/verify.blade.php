@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
+                        <div class="alert alert-success">
                             新しい認証リンクがあなたのメールアドレスに送信されました。
                         </div>
                     @endif

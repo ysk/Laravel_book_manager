@@ -9,6 +9,12 @@
             <div class="card">
                 <div class="card-header">お問い合わせフォーム</div>
 
+                @if (session('message'))
+                <div class="alert alert-success">
+                    {{ session('message') }}
+                </div>
+                @endif
+
                 <div class="card-body">
                     <form method="POST" action="/contact">
                         @csrf

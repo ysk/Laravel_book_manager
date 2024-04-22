@@ -31,7 +31,7 @@ class ContactController extends Controller
         // 例えば、メール送信やデータベースへの保存など
 
         // お問い合わせが送信された後、成功メッセージを表示してリダイレクト
-        return redirect()->back()->with('success', 'お問い合わせが送信されました。');
+        return redirect()->back()->with('message', 'お問い合わせが送信されました。');
     }
 
 }

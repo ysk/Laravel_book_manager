@@ -72,9 +72,9 @@ class BooksController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(BookRequest $request, Book $book)
-    {
-        $books = Book::find($request->id);
+    public function update(BookRequest $request, $id)
+    {        
+        $book = Book::find($id);
         $book->fill($request->validated());
         $book->save();
         return redirect('/')->with('message','書籍を更新しました');
@@ -83,9 +83,9 @@ class BooksController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Request $request, Book $book)
+    public function destroy(Request $request, $id)
     {
-        $book = Book::find($request->id);
+        $book = Book::find($id);
         $book->delete();
         return redirect('/')->with('message','書籍を削除しました');
     }
