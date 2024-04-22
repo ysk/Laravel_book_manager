@@ -8,9 +8,9 @@
                 <div class="card-header">書籍情報詳細</div>
 
                 <div class="card-body">
-                    @if (session('status'))
+                    @if (session('message'))
                         <div class="alert alert-success">
-                            {{ session('status') }}
+                            {{ session('message') }}
                         </div>
                     @endif
 
