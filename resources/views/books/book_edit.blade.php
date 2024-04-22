@@ -22,6 +22,18 @@
                         <h4>書籍情報更新</h4>
                         <form method="POST" action="{{ route('book.update', ['id' => $book->id]) }}">
                             @csrf
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="category_id" class="form-label">カテゴリ</label>
+                                    <select name="category_id" class="form-select">
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="row mb-3">
                                 <div class="col-md-12">
                                     <label for="item_name" class="form-label">書籍名</label>
@@ -51,11 +63,7 @@
                                 <button type="submit" class="btn btn-primary">更新</button>
                             </div>
 
-                            <select name="category_id">
-                                <option value="1" selected>プログラミング言語</option>
-                                <option value="2">プログラミング言語</option>
-                            </select>
-                            <input type="text" name="user_id" value="{{ $book->user_id }}">
+                            <input type="hidden" name="user_id" value="{{ $book->user_id }}">
                         </form>
                     </div>
                     <!-- // コンテンツ -->

@@ -15,7 +15,17 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ms-auto">
-                <form action="{{-- route('book.search') --}}" method="GET" class="d-flex">
+                <form action="{{ route('search.result') }}" method="GET" class="d-flex" placeholder="検索キーワード">
+        
+                    <div class="input-group mr-2">
+                        <select name="category_id" class="form-select">
+                            <option value="">全てのカテゴリ</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <div class="input-group">
                         <input type="text" class="form-control" name="query" placeholder="検索">
                         <button type="submit" class="btn btn-primary">検索</button>

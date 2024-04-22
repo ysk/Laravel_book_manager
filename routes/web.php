@@ -4,7 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +24,7 @@ Route::get('/', [BooksController::class, 'index'])->name('books.index');
 
 Route::prefix('books')->group(function () {   
     Route::get('/show/{id}', [BooksController::class, 'show'])->name('book.show');
+    Route::get('/search', [SearchController::class, 'searchQuery'])->name('search.result');
 });
 
 
