@@ -33,7 +33,7 @@ class BooksController extends Controller
          * ORDER BY `books`.`created_at` ASC
          * LIMIT 5
          */
-        $books = Book::with('category')->orderBy('created_at')->paginate(5);
+        $books = Book::with('category')->orderBy('created_at', 'desc')->paginate(5);
 
         return view(
             'books.book_index',

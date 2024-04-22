@@ -16,16 +16,12 @@
 
                     <!-- コンテンツ -->
                     <div class="book-details">
-                        <h4>{{ $book->user->name }}さんが投稿した書籍詳細</h4>
-
-
+                        <h4>{{ $book->item_name }}</h4>
                         <img src="https://placehold.jp/100x120.png" alt="ダミー画像" class="img-thumbnail">
-
-                        
                         <table class="table">
                             <tr>
-                                <th>ID</th>
-                                <td>{{ $book->id }}</td>
+                                <th>投稿者</th>
+                                <td>{{ $book->user->name }}</td>
                             </tr>
                             <tr>
                                 <th>書籍名</th>
@@ -33,13 +29,12 @@
                             </tr>
                             <tr>
                                 <th>価格</th>
-                                <td>{{ $book->item_amount }}円</td>
+                                <td>{{ number_format($book->item_amount)}}円</td>
                             </tr>
                             <tr>
                                 <th>発売日</th>
                                 <td>{{ $book->published->format('Y年m月d日') }}</td>
                             </tr>
-
                             <tr>
                                 <th>レビュー</th>
                                 <td>{{ $book->item_review }}</td>

@@ -28,31 +28,28 @@
                                     <label for="category_id" class="form-label">カテゴリ</label>
                                     <select name="category_id" class="form-select">
                                         @foreach($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
-
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="item_name" class="form-label">書籍名</label>
-                                    <input type="text" name="item_name" value="" class="form-control">
+                                    <input type="text" name="item_name" value="{{ old('item_name') }}" class="form-control">
                                 </div>
                             </div>
-
-
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="item_number" class="form-label">No</label>
-                                    <input type="text" name="item_number" value="" class="form-control">
+                                    <input type="text" name="item_number" value="{{ old('item_number') }}" class="form-control">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="item_amount" class="form-label">金額</label>
                                     <div class="input-group">
-                                        <input type="text" name="item_amount" value="" class="form-control">
+                                        <input type="text" name="item_amount" value="{{ old('item_amount') }}" class="form-control">
                                         <span class="input-group-text">円</span>
                                     </div>
                                 </div>
@@ -60,9 +57,15 @@
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="published" class="form-label">出版日</label>
-                                    <input type="text" name="published" value="" class="form-control">
+                                    <input type="date" name="published" value="{{ old('published') }}" class="form-control">
                                 </div>
                             </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="item_review" class="form-label">書評</label>
+                                    <input type="text" name="item_review" value="{{ old('item_review') }}" class="form-control">
+                                </div>
+                            </div>   
                             <div class="form-buttons text-center">
                                 <button type="submit" class="btn btn-primary" style="margin-right: 20px">登録</button>
                                 <a href="{{ route('books.index') }}" class="btn btn-secondary">戻る</a>

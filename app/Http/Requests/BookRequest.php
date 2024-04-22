@@ -16,6 +16,7 @@ class BookRequest extends FormRequest
             'item_number' => 'integer',
             'item_amount' => 'integer',
             'published' => 'date',
+            'item_review' => 'string',
         ];
 
         return $rules;

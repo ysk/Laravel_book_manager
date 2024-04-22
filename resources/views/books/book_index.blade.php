@@ -13,23 +13,21 @@
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
+                            <li>{{ $error }}</li>
                             @endforeach
                         </ul>
                     </div>
                     @endif
 
                     @if (session('message'))
-                        <div class="alert alert-success">
-                            {{ session('message') }}
-                        </div>
+                    <div class="alert alert-success">
+                        {{ session('message') }}
+                    </div>
                     @endif
 
                     <table class="table">
                         <thead>
                             <tr>
-                                {{-- <th>#</th> --}}
-                                
                                 <th></th>
                                 <th>書籍名</th>
                                 <th>カテゴリ</th>
@@ -43,35 +41,32 @@
                         </thead>
                         <tbody>
                             @foreach ($books as $book)
-                                <tr>
-                                    {{-- <td>{{ $book->id }}</td> --}}
-                                   
-                                    <td>
-                                        <div class="thumbnail">
-                                            <img src="https://placehold.jp/100x120.png" alt="ダミー画像" class="img-thumbnail">
-                                        </div></td>
-                                    <td><a href="{{ route('book.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a></td>
-                                    <td>{{ $book->category ? $book->category->name : '-' }}</td>
-
-
-                                    <td>{{ number_format($book->item_amount)}} 円</td>
-                                    <td>{{ $book->published->format('Y年m月d日') }}</td>
-                                    <td>{{ $book->user->name }}</td>
-                                    <td>{{ $book->item_review }}</td>
-                                    <td>
-                                        @if (Auth::id()==$book->user->id)
-                                            <a href="{{ route('book.edit', ['id' => $book->id]) }}" class="btn btn-secondary">編集</a>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if (Auth::id()==$book->user->id)
-                                            <form method="POST" action="{{ route('book.destroy', ['id' => $book->id]) }}">
-                                                @csrf
-                                                <button type="button" class="btn btn-danger js-delete">削除</button>
-                                            </form>
-                                        @endif
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>
+                                    <div class="thumbnail">
+                                        <img src="https://placehold.jp/100x120.png" alt="ダミー画像" class="img-thumbnail">
+                                    </div>
+                                </td>
+                                <td><a href="{{ route('book.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a></td>
+                                <td>{{ $book->category ? $book->category->name : '-' }}</td>
+                                <td>{{ number_format($book->item_amount)}} 円</td>
+                                <td>{{ $book->published->format('Y年m月d日') }}</td>
+                                <td>{{ $book->user->name }}</td>
+                                <td>{{ $book->item_review }}</td>
+                                <td>
+                                    @if (Auth::id()==$book->user->id)
+                                    <a href="{{ route('book.edit', ['id' => $book->id]) }}" class="btn btn-secondary">編集</a>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if (Auth::id()==$book->user->id)
+                                    <form method="POST" action="{{ route('book.destroy', ['id' => $book->id]) }}">
+                                        @csrf
+                                        <button type="button" class="btn btn-danger js-delete">削除</button>
+                                    </form>
+                                    @endif
+                                </td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
