@@ -2,13 +2,13 @@
     <div class="container text-center">
         <div class="row col-md-5" style="margin: auto">
             <div class="col">
-                <a href="{{ route('page.profile') }}" class="text-dark">プロフィール</a>
+                <a href="{{ route('pages.profile') }}" class="text-dark">プロフィール</a>
             </div>
             <div class="col">
-                <a href="{{ route('page.privacy') }}" class="text-dark">プライバシーポリシー</a>
+                <a href="{{ route('pages.privacy') }}" class="text-dark">プライバシーポリシー</a>
             </div>
             <div class="col">
-                <a href="{{ route('page.contact') }}" class="text-dark">お問い合わせ</a>
+                <a href="{{ route('contact.show') }}" class="text-dark">お問い合わせ</a>
             </div>
         </div>
         <div class="row mt-2">
@@ -18,6 +18,4 @@
         </div>
     </div>
 </footer>
-<style>
 
-</style>

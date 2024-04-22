@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('common.app')
 
 @section('content')
 <div class="container">
@@ -36,8 +36,8 @@
                                 <td>{{ $book->published->format('Y年m月d日') }}</td>
                             </tr>
                             <tr>
-                                <th>レビュー</th>
-                                <td>{{ $book->item_review }}</td>
+                                <th>書評</th>
+                                <td>{!! nl2br( $book->item_review) !!}</td>
                             </tr>
                         </table>
                         <div class="form-buttons text-center">

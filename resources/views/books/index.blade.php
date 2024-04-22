@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('common.app')
 
 @section('content')
 <div class="container">
@@ -52,7 +52,7 @@
                                 <td>{{ number_format($book->item_amount)}} 円</td>
                                 <td>{{ $book->published->format('Y年m月d日') }}</td>
                                 <td>{{ $book->user->name }}</td>
-                                <td>{{ $book->item_review }}</td>
+                                <td>{{ Str::limit($book->item_review,200) }}</td>
                                 <td>
                                     @if (Auth::id()==$book->user->id)
                                     <a href="{{ route('book.edit', ['id' => $book->id]) }}" class="btn btn-secondary">編集</a>

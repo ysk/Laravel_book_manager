@@ -25,7 +25,7 @@ class BooksController extends Controller
     public function index()
     {
         $books = Book::with('category')->orderBy('created_at', 'desc')->paginate(5);
-        return view('books.book_index', [
+        return view('books.index', [
             'books' => $books
         ]);
     }
@@ -35,7 +35,7 @@ class BooksController extends Controller
      */
     public function create()
     {
-        return view('books.book_create');
+        return view('books.create');
     }
 
     /**
@@ -54,7 +54,7 @@ class BooksController extends Controller
      */
     public function show($id)
     {
-        return view('books.book_show', [
+        return view('books.show', [
             'book' => Book::findOrFail($id)
         ]);
     }
@@ -64,7 +64,7 @@ class BooksController extends Controller
      */
     public function edit($id)
     {
-        return view('books.book_edit', [
+        return view('books.edit', [
             'book' => Book::findOrFail($id)
         ]);
     }

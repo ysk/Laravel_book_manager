@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PageController;
 
 /*
@@ -39,8 +40,12 @@ Route::middleware('auth')->group(function () {
     });
 });
 
+// お問い合わせフォーム
+Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+
 // その他静的ページ
-Route::get('/privacy', [PageController::class, 'privacy'])->name('page.privacy');
-Route::get('/profile', [PageController::class, 'profile'])->name('page.profile');
-Route::get('/contact', [PageController::class, 'contact'])->name('page.contact');
+Route::get('/privacy', [PageController::class, 'privacy'])->name('pages.privacy');
+Route::get('/profile', [PageController::class, 'profile'])->name('pages.profile');
+
 

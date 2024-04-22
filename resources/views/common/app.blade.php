@@ -13,13 +13,13 @@
 <body>
     <div id="app">
 
-        @include('layouts.header')
+        @include('common.header')
 
         <main class="py-4">
             @yield('content')
         </main>
 
-        @include('layouts.footer')
+        @include('common.footer')
 
     </div>
 </body>

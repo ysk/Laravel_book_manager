@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('common.app')
 
 @section('content')
 <div class="container">
@@ -61,9 +61,9 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-md-6">
+                                <div class="col-md-10">
                                     <label for="item_review" class="form-label">書評</label>
-                                    <input type="text" name="item_review" value="{{ old('item_review') }}" class="form-control">
+                                    <textarea name="item_review" class="form-control">{{ old('item_review')}}</textarea>
                                 </div>
                             </div>   
                             <div class="form-buttons text-center">

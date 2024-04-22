@@ -8,19 +8,13 @@ class PageController extends Controller
 {
     public function profile()
     {
-        return view('page.profile');
+        return view('pages.profile');
     }
 
 
     public function privacy()
     {
-        return view('page.privacy');
-    }
-
-
-    public function contact()
-    {
-        return view('page.contact');
+        return view('pages.privacy');
     }
 
 }
