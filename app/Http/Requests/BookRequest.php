@@ -10,12 +10,12 @@ class BookRequest extends FormRequest
     {
 
         $rules =  [
-            'user_id' => 'integer',
+            'user_id'     => 'integer',
             'category_id' => 'integer',
-            'item_name' => 'required|string',
+            'item_name'   => 'required|string',
             'item_number' => 'integer',
             'item_amount' => 'integer',
-            'published' => 'date',
+            'published'   => 'date',
             'item_review' => 'string',
         ];
 

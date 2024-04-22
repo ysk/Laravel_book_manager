@@ -24,23 +24,11 @@ class BooksController extends Controller
      */
     public function index()
     {
-
-        /**
-         * 下の１文は下記SQLと同じ意味
-         * SELECT `books`.*, `categories`.*
-         * FROM `books`
-         * LEFT JOIN `categories` ON `categories`.`id` = `books`.`category_id`
-         * ORDER BY `books`.`created_at` ASC
-         * LIMIT 5
-         */
         $books = Book::with('category')->orderBy('created_at', 'desc')->paginate(5);
-
-        return view(
-            'books.book_index',
-            ['books' => $books]
-        );
+        return view('books.book_index', [
+            'books' => $books
+        ]);
     }
-    
     
     /**
      * Show the form for creating a new resource.
