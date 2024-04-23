@@ -44,9 +44,9 @@
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-4">
-                                    <label for="item_amount" class="form-label">金額</label>
+                                    <label for="item_price" class="form-label">金額</label>
                                     <div class="input-group">
-                                        <input type="text" name="item_amount" value="{{ old('item_amount', $book->item_amount) }}" class="form-control">
+                                        <input type="text" name="item_price" value="{{ old('item_price', $book->item_price) }}" class="form-control">
                                         <span class="input-group-text">円</span>
                                     </div>
                                 </div>

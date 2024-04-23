@@ -21,7 +21,7 @@ class Book extends Model
         'item_thumbnail',
         'item_name',
         'item_number',
-        'item_amount',
+        'item_price',
         'item_review',
         'published_at'
     ];

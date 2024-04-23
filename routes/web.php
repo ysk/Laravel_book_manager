@@ -54,6 +54,6 @@ Route::prefix('contact')->group(function () {
 
 // その他静的ページ
 Route::get('/privacy', [PageController::class, 'privacy'])->name('pages.privacy');
-Route::get('/profile', [PageController::class, 'profile'])->name('pages.profile');
+Route::get('/about', [PageController::class, 'about'])->name('pages.about');
 
 

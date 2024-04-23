@@ -11,17 +11,25 @@ use App\Models\Category;
 
 class UserController extends Controller
 {
-    public function show($id)
+
+    /**
+     * 指定されたユーザーの情報と関連する書籍を表示
+     *
+     * @param int $id 表示するユーザーのID
+     * @return \Illuminate\View\View
+     */
+    public function show(int $id)
     {
        // $id    = Auth::id();
         $user  = User::find($id);
         $books = Book::where('user_id', $id)
                         ->orderBy('created_at', 'desc')
-                        ->paginate(10);
+                        ->paginate(15);
         return view('users.show', [
-            'user'  => $user,
-            'books' => $books,
+            'user'    => $user,
+            'books'   => $books,
+            'body_id' => 'users_show',
         ]);
     }
-}
 
+}

@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -9,12 +10,27 @@ use App\Http\Requests\ContactFormRequest;
 
 class ContactController extends Controller
 {
+
+    /**
+     * フォーム入力画面の表示
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
     public function show()
     {
         $contactFormData = session('contact_form_data');
-        return view('contact.show', ['contact_form_data' => $contactFormData]);
+        return view('contact.show', [
+            'contact_form_data' => $contactFormData,
+            'body_id' => 'contact_form_show'
+        ]);
     }
     
+    /**
+     * 送信内容をセッションに保存、確認画面へ遷移
+     *
+     * @param ContactFormRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(ContactFormRequest $request)
     {
         $contactFormData = $request->all();
@@ -22,12 +38,27 @@ class ContactController extends Controller
         return redirect()->route('contact.confirm');
     }
     
+    /**
+     * 確認画面の表示
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\View
+     */
     public function confirm(Request $request)
     {
         $contactFormData = $request->session()->get('contact_form_data');
-        return view('contact.confirm', ['contact_form_data' => $contactFormData]);
+        return view('contact.confirm', [
+            'contact_form_data' => $contactFormData,
+            'body_id' => 'contact_form_confirm'
+        ]);
     }
     
+    /**
+     * お問い合わせの送信
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function send(Request $request)
     {
         $contactFormData = $request->session()->get('contact_form_data');
@@ -43,4 +74,5 @@ class ContactController extends Controller
         $request->session()->forget('contact_form_data');
         return redirect()->route('contact.show')->with('message', 'お問い合わせが送信されました。');
     }
+
 }

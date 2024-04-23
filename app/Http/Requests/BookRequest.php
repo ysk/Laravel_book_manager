@@ -15,7 +15,7 @@ class BookRequest extends FormRequest
             'item_name'      => 'required|string',
             'item_thumbnail' => 'nullable|image|mimes:png,jpg,gif|max:7168', 
             'item_number'    => 'nullable|integer',
-            'item_amount'    => 'nullable|integer',
+            'item_price'    => 'nullable|integer',
             'published_at'   => 'nullable|date',
             'item_review'    => 'nullable|string',
         ];

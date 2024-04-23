@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->string('item_name');
             $table->integer('item_number');
-            $table->integer('item_amount');
+            $table->integer('item_price');
             $table->datetime('published_at');
             $table->timestamps();
         });

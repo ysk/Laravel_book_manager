@@ -14,32 +14,42 @@ class BooksController extends Controller
 
     public function __construct()
     {
-        
     }
 
     /**
-     * Display a listing of the resource.
+     * 書籍の一覧を表示する。
+     *
+     * @return \Illuminate\Contracts\View\View
      */
-    public function index()
+    public function index(): \Illuminate\Contracts\View\View
     {
         $books = Book::with('category')->orderBy('created_at', 'desc')->paginate(20);
         return view('books.index', [
-            'books' => $books
+            'books'   => $books,
+            'body_id' => 'books_index'
         ]);
     }
     
     /**
-     * Show the form for creating a new resource.
+     * 新しい書籍を作成するためのフォームを表示する。
+     *
+     * @return \Illuminate\Contracts\View\View
      */
-    public function create()
+    public function create(): \Illuminate\Contracts\View\View
     {
-        return view('books.create');
+        return view('books.create', [
+            'body_id' => 'books_create'
+        ]);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * 新しい書籍を保存する。
+     *
+     * @param BookRequest $request
+     * @param Book $book
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(BookRequest $request, Book $book)
+    public function store(BookRequest $request, Book $book): \Illuminate\Http\RedirectResponse
     {
         $file = $request->file('item_thumbnail');
         if (!is_null($file)) {
@@ -48,36 +58,48 @@ class BooksController extends Controller
         }
         $book->user_id        = Auth::id();
         $book->fill($request->validated());
-        $book->item_thumbnail = $filename ?? null; //要調査
+        $book->item_thumbnail = $filename ?? null;
         $book->save();
         return redirect('/')->with('message', '書籍を登録しました');
     }
 
 
     /**
-     * Display the specified resource.
+     * 指定された書籍を表示する。
+     *
+     * @param int $id
+     * @return \Illuminate\Contracts\View\View
      */
-    public function show($id)
+    public function show(int $id): \Illuminate\Contracts\View\View
     {
         return view('books.show', [
-            'book' => Book::findOrFail($id)
+            'book'    => Book::findOrFail($id),
+            'body_id' => 'books_show'
         ]);
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * 指定された書籍を編集するためのフォームを表示する。
+     *
+     * @param int $id
+     * @return \Illuminate\Contracts\View\View
      */
-    public function edit($id)
+    public function edit(int $id): \Illuminate\Contracts\View\View
     {
         return view('books.edit', [
-            'book' => Book::findOrFail($id)
+            'book'    => Book::findOrFail($id),
+            'body_id' => 'books_edit'
         ]);
     }
 
     /**
-     * Update the specified resource in storage.
+     * 指定された書籍を更新する。
+     *
+     * @param BookRequest $request
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(BookRequest $request, $id)
+    public function update(BookRequest $request, int $id): \Illuminate\Http\RedirectResponse
     {        
         $book = Book::find($id);
         $book->fill($request->validated());
@@ -86,9 +108,13 @@ class BooksController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * 指定された書籍を削除する。
+     *
+     * @param Request $request
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Request $request, $id)
+    public function destroy(Request $request, int $id): \Illuminate\Http\RedirectResponse
     {
         $book = Book::find($id);
         $book->delete();
@@ -96,3 +122,7 @@ class BooksController extends Controller
     }
 
 }
+
+
+
+

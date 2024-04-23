@@ -1,0 +1,196 @@
+/* 共通設定 */
+body {
+    color: #fff;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+a {
+    text-decoration: underline;
+    color: #400040;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+/* ヘッダー、ナビゲーション */
+.navbar {
+    padding: 5px;
+}
+
+.navbar-subtitle {
+    margin-bottom: 0;
+}
+
+/* フッター */
+.footer {
+    a {
+        font-size: 12px;
+    }
+}
+
+.card-header {
+    font-weight: bold;
+}
+
+/* ボタン */
+.btn-primary {
+    background: #008040;
+    border: solid 1px #00793D;
+    &:hover {
+        background: #009F50;
+    }
+}
+
+/* プライバシーポリシー */
+#privacy {
+    section {
+        margin-bottom: 30px;
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        p {
+            font-size: 14px;
+        }
+    }
+}
+
+/* このサイトについて */
+#about {
+    section {
+        margin-bottom: 30px;
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        p {
+            font-size: 14px;
+        }
+        ul {
+            list-style: inside;
+        }
+    }
+}
+
+/* TOPページ書籍一覧 */
+#books_index {
+    .thead {
+        .item_thumbnail {
+            width: 150px;
+            text-align: center;
+        }
+        .item_name {
+            width: 200px;
+        }
+        .item_price {
+            width: 250px;
+        }
+        .item_category {
+            width: 150px;
+        }
+        .item_published_at {
+            width: 150px;
+        }
+        .item_user_id {
+            width: 100px;
+        }
+        .item_review {
+            /* width: 300px; */
+        }
+    }
+    .tbody {
+        .item_name {
+        }
+    }
+    .btn-primary {
+        width: 30%;
+        padding: 10px 0;
+        background: #008040;
+        border: solid 1px #00793D;
+        &:hover {
+            background: #009F50;
+            border: solid 1px #00793D;
+        }
+    }
+}
+
+/* 書籍詳細情報 */
+#books_show{
+
+}
+
+/* 書籍検索結果一覧 */
+#search_results {
+    .thead {
+        .item_thumbnail {
+            width: 150px;
+            text-align: center;
+        }
+        .item_name {
+            width: 200px;
+        }
+        .item_price {
+            width: 250px;
+        }
+        .item_category {
+            width: 150px;
+        }
+        .item_published_at {
+            width: 150px;
+        }
+        .item_user_id {
+            width: 100px;
+        }
+        .item_review {
+            /* width: 300px; */
+        }
+    }
+    .tbody {
+        .item_name {
+        }
+    }
+    .btn-primary {
+        width: 30%;
+        padding: 10px 0;
+        background: #008040;
+        border: solid 1px #00793D;
+        &:hover {
+            background: #009F50;
+            border: solid 1px #00793D;
+        }
+    }
+    .search-results {
+        text-align: center;
+        font-size: 16px;
+        padding: 20px 0;
+    }
+}
+
+/* SPサイト用スタイル */
+@media (max-width: 767px) {
+    #books_index {
+        .table tr > td:last-child {
+            margin-bottom: 20px;
+            border-bottom: none;
+        }
+        .table th {
+            display: none;
+        }
+        .table td {
+            display: block;
+            padding: 5px;
+            width: 100% !important;
+            box-sizing: border-box;
+        }
+    }
+}
+
+/* ページング処理 */
+.pagination {
+    .sm\:justify-between {
+        display: block;
+    }
+}
