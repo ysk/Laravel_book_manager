@@ -17,22 +17,22 @@
                     <!-- コンテンツ -->
                     <h4>{{ $user->name }} さんの本棚</h4>
 
-                    @if(isset($user->userprof->user_id))
+                    {{-- @if(isset($user->userprof->user_id)) --}}
                     <table class="table">
                         <tr>
                             <th>住所</th>
-                            <td>{{ $user->userprof->address }}</td>
+                            <td>{{ $user->userprof->address??null }}</td>
                         </tr>
                         <tr>
                             <th>電話番号</th>
-                            <td>{{ $user->userprof->phone }}</td>
+                            <td>{{ $user->userprof->phone??null }}</td>
                         </tr>
                         <tr>
                             <th>GitHub</th>
-                            <td>{{ $user->userprof->github_url }}</td>
+                            <td>{{ $user->userprof->github_url??null }}</td>
                         </tr>
                     </table>
-                    @endif
+                    {{-- @endif --}}
 
                     <table class="table">
                         <thead>

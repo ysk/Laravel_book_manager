@@ -25,7 +25,8 @@ class BooksController extends Controller
     {
         $books = Book::with('category')->orderBy('created_at', 'desc')->paginate(20);
         return view('books.index', [
-            'books' => $books
+            'books'   => $books,
+            'body_id' => 'books_index'
         ]);
     }
     
@@ -36,7 +37,9 @@ class BooksController extends Controller
      */
     public function create(): \Illuminate\Contracts\View\View
     {
-        return view('books.create');
+        return view('books.create', [
+            'body_id' => 'books_create'
+        ]);
     }
 
     /**
@@ -70,7 +73,8 @@ class BooksController extends Controller
     public function show(int $id): \Illuminate\Contracts\View\View
     {
         return view('books.show', [
-            'book' => Book::findOrFail($id)
+            'book'    => Book::findOrFail($id),
+            'body_id' => 'books_show'
         ]);
     }
 
@@ -83,7 +87,8 @@ class BooksController extends Controller
     public function edit(int $id): \Illuminate\Contracts\View\View
     {
         return view('books.edit', [
-            'book' => Book::findOrFail($id)
+            'book'    => Book::findOrFail($id),
+            'body_id' => 'books_edit'
         ]);
     }
 

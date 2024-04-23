@@ -19,7 +19,10 @@ class ContactController extends Controller
     public function show()
     {
         $contactFormData = session('contact_form_data');
-        return view('contact.show', ['contact_form_data' => $contactFormData]);
+        return view('contact.show', [
+            'contact_form_data' => $contactFormData,
+            'body_id' => 'contact_form_show'
+        ]);
     }
     
     /**
@@ -44,7 +47,10 @@ class ContactController extends Controller
     public function confirm(Request $request)
     {
         $contactFormData = $request->session()->get('contact_form_data');
-        return view('contact.confirm', ['contact_form_data' => $contactFormData]);
+        return view('contact.confirm', [
+            'contact_form_data' => $contactFormData,
+            'body_id' => 'contact_form_confirm'
+        ]);
     }
     
     /**

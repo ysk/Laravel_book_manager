@@ -28,7 +28,10 @@ class SearchController extends Controller
         }
 
         $books = $booksQuery->paginate(20);
-        return view('search.results', ['books' => $books]);
+        return view('search.results', [
+            'books' => $books,
+            'body_id' => 'search_results'
+        ]);
     }
 
 }

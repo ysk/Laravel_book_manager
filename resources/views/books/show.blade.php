@@ -17,7 +17,13 @@
                     <!-- コンテンツ -->
                     <div class="book-details">
                         <h4>{{ $book->item_name }}</h4>
-                        <img src="{{ asset('images/no_image.png') }}" alt="No Image" class="img-thumbnail" style="width: 150px">
+                        <div class="thumbnail">
+                            @if($book->item_thumbnail)
+                                <img src="{{ asset('storage/uploads/' . $book->item_thumbnail) }}" alt="{{ $book->item_name }}" class="img-thumbnail" style="width: 150px">
+                            @else
+                                <img src="{{ asset('images/no_image.png') }}" alt="No Image" class="img-thumbnail" style="width: 150px">
+                            @endif
+                        </div>
                         <table class="table">
                             <tr>
                                 <th>投稿者</th>

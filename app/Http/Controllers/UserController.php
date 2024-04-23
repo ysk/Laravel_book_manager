@@ -24,10 +24,11 @@ class UserController extends Controller
         $user  = User::find($id);
         $books = Book::where('user_id', $id)
                         ->orderBy('created_at', 'desc')
-                        ->paginate(10);
+                        ->paginate(15);
         return view('users.show', [
-            'user'  => $user,
-            'books' => $books,
+            'user'    => $user,
+            'books'   => $books,
+            'body_id' => 'users_show',
         ]);
     }
 
