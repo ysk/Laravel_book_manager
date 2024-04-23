@@ -77,7 +77,7 @@
                                 </td>
                                 <td>
                                     @if (Auth::id()==$book->user->id)
-                                        <form method="POST" action="{{ route('book.destroy', ['id' => $book->id]) }}">
+                                        <form method="POST" action="{{ route('book.destroy', ['id' => $book->id]) }}">gi
                                             @csrf
                                             <button type="button" class="btn btn-danger js-delete">削除</button>
                                         </form>
