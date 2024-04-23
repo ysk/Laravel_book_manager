@@ -141,6 +141,8 @@ return [
     */
 
     'attributes' => [
+
+        //書籍情報登録
         'item_name'      => '書籍名',
         'published_at'   => '発売日',
         'user_id'        => 'ユーザーID',
@@ -151,6 +153,12 @@ return [
         'item_amount'    => '金額',
         'published_at'   => '公開日',
         'item_review'    => '書評',
+
+        //お問い合わせフォーム
+        'name'    => 'お名前',
+        'email'   => 'メールアドレス',
+        'message' => 'メッセージ',
+
     ],
 
 ];

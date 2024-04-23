@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-11">
             <div class="card">
                 <div class="card-header">書籍情報詳細</div>
 
@@ -17,7 +17,7 @@
                     <!-- コンテンツ -->
                     <div class="book-details">
                         <h4>{{ $book->item_name }}</h4>
-                        <img src="https://placehold.jp/100x120.png" alt="ダミー画像" class="img-thumbnail">
+                        <img src="{{ asset('images/no_image.png') }}" alt="No Image" class="img-thumbnail" style="width: 150px">
                         <table class="table">
                             <tr>
                                 <th>投稿者</th>
@@ -29,15 +29,23 @@
                             </tr>
                             <tr>
                                 <th>価格</th>
-                                <td>{{ number_format($book->item_amount)}}円</td>
+                                <td>
+                                    @if ($book->item_amount != 0)
+                                    {{ number_format($book->item_amount)}} 円
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <th>発売日</th>
-                                <td>{{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') }}</td>
+                                <td>
+                                    {{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') }}
+                                </td>
                             </tr>
                             <tr>
                                 <th>書評</th>
-                                <td>{!! nl2br( $book->item_review) !!}</td>
+                                <td>
+                                    {!! nl2br( $book->item_review) !!}
+                                </td>
                             </tr>
                         </table>
                         <div class="form-buttons text-center">

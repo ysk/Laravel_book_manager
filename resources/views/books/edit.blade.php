@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-11">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
                 <div class="card-body">
@@ -31,7 +31,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-md-12">
+                                <div class="col-md-11">
                                     <label for="item_name" class="form-label">書籍名</label>
                                     <input type="text" name="item_name" value="{{ old('item_name', $book->item_name) }}" class="form-control">
                                 </div>
@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-md-12">
+                                <div class="col-md-11">
                                     <label for="item_review" class="form-label">書評</label>
                                     <textarea name="item_review" class="form-control">{{ old('item_review', $book->item_review) }}</textarea>
                                 </div>

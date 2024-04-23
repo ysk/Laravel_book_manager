@@ -67,7 +67,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-md-10">
+                                <div class="col-md-11">
                                     <label for="item_review" class="form-label">書評</label>
                                     <textarea name="item_review" class="form-control">{{ old('item_review')}}</textarea>
                                 </div>

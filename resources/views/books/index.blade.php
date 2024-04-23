@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-11">
             <div class="card">
                 <div class="card-header">技術書一覧</div>
 
@@ -46,34 +46,48 @@
                                         @if($book->item_thumbnail)
                                             <img src="{{ asset('storage/uploads/' . $book->item_thumbnail) }}" alt="{{ $book->item_name }}" class="img-thumbnail" style="width: 150px">
                                         @else
-                                            <img src="https://placehold.jp/100x120.png" alt="No Image" class="img-thumbnail" style="width: 150px">
+                                            <img src="{{ asset('images/no_image.png') }}" alt="No Image" class="img-thumbnail" style="width: 150px">
                                         @endif
                                     </div>
                                 </td>
-                                <td><a href="{{ route('book.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a></td>
-                                <td>{{ $book->category->name }}</td>
-                                <td>{{ number_format($book->item_amount)}} 円</td>
-                                <td>{{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') }}</td>
-                                <td>{{ $book->user->name }}</td>
-                                <td>{{ Str::limit($book->item_review,200) }}</td>
+                                <td>
+                                    <a href="{{ route('book.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a>
+                                </td>
+                                <td>
+                                    <a href="/books/search?category_id={{$book->category->id }}">{{$book->category->name }}</a>
+                                </td>
+                                <td>
+                                    @if ($book->item_amount != 0)
+                                        {{ number_format($book->item_amount)}} 円
+                                    @endif
+                                </td>
+                                <td>
+                                    {{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') }}
+                                </td>
+                                <td>
+                                    {{ $book->user->name }}
+                                </td>
+                                <td>
+                                    {{ Str::limit($book->item_review, 200) }}
+                                </td>
                                 <td>
                                     @if (Auth::id()==$book->user->id)
-                                    <a href="{{ route('book.edit', ['id' => $book->id]) }}" class="btn btn-secondary">編集</a>
+                                        <a href="{{ route('book.edit', ['id' => $book->id]) }}" class="btn btn-secondary">編集</a>
                                     @endif
                                 </td>
                                 <td>
                                     @if (Auth::id()==$book->user->id)
-                                    <form method="POST" action="{{ route('book.destroy', ['id' => $book->id]) }}">
-                                        @csrf
-                                        <button type="button" class="btn btn-danger js-delete">削除</button>
-                                    </form>
+                                        <form method="POST" action="{{ route('book.destroy', ['id' => $book->id]) }}">
+                                            @csrf
+                                            <button type="button" class="btn btn-danger js-delete">削除</button>
+                                        </form>
                                     @endif
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    <!-- // コンテンツ -->
+
                     <div class="pagination justify-content-center mt-3">
                         {{ $books->links() }}
                     </div>
@@ -81,7 +95,7 @@
                     <div class="pagination justify-content-center" style="margin-top: 20px;">
                         <a href="{{ route('book.create') }}" class="btn btn-primary" >新規登録</a>
                     </div>
-
+                    <!-- // コンテンツ -->
                 </div>
             </div>
         </div>
