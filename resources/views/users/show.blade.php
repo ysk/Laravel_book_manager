@@ -82,11 +82,7 @@
                         </tbody>
                     </table>
 
-                    @if (Auth::id() == $book->user->id)
-                    <div class="pagination justify-content-center" style="margin-top: 20px; margin-bottom:20px;">
-                        <a href="{{ route('book.create') }}" class="btn btn-primary" >新規登録</a>
-                    </div>
-                    @endif
+
 
                     <!-- // コンテンツ -->
                     <div class="form-buttons text-center">

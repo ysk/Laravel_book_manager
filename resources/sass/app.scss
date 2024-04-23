@@ -6,3 +6,48 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+h1 {
+    font-weight: bold;
+}
+
+body {
+    color: #fff;
+}
+
+a {
+    text-decoration: underline;
+    color: #6c757d;
+}
+
+a:hover {
+    text-decoration: none;
+}
+.card-header{
+    font-weight: bold;
+}
+
+// .card{
+//     border: none;
+//     border-radius: 10px;
+// }
+.navbar {
+    padding: 5px;
+}
+
+.navbar-subtitle {
+    margin-bottom: 0;
+}
+
+.footer a {
+    font-size: 12px;
+}
+
+#privacy h2{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#privacy p{
+    font-size: 12px;
+}
