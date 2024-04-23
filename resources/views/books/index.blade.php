@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-11">
             <div class="card">
-                <div class="card-header">技術書一覧</div>
+                <div class="card-header">投稿された技術書一覧</div>
 
                 <div class="card-body">
                     <!-- コンテンツ -->

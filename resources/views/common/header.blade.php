@@ -1,8 +1,19 @@
+
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+
+
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            技術書の本棚
+            <h1>TECH CACHE</h1>
+            <p>みんなの技術書の本棚共有サイト</p>
         </a>
+
+
+        <style>
+            .navbar{
+                 font-family: "M PLUS 1p" !important; 
+            }
+        </style>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>

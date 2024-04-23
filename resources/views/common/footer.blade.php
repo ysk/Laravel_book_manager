@@ -2,7 +2,7 @@
     <div class="container text-center">
         <div class="row col-md-5" style="margin: auto">
             <div class="col">
-                <a href="{{ route('pages.profile') }}" class="text-dark">プロフィール</a>
+                <a href="{{ route('pages.about') }}" class="text-dark">このサイトについて</a>
             </div>
             <div class="col">
                 <a href="{{ route('pages.privacy') }}" class="text-dark">プライバシーポリシー</a>
@@ -13,7 +13,7 @@
         </div>
         <div class="row mt-2">
             <div class="col">
-                <span class="text-muted">&copy; 技術書の本棚 2024</span>
+                <span class="text-muted">&copy; TECH CACHE 2024</span>
             </div>
         </div>
     </div>
