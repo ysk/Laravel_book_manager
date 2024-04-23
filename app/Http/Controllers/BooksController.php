@@ -24,8 +24,7 @@ class BooksController extends Controller
     {
         $books = Book::with('category')->orderBy('created_at', 'desc')->paginate(5);
         return view('books.index', [
-            'books' => $books,
-            'hogehoge'=>$this->hogehoge()
+            'books' => $books
         ]);
     }
     
