@@ -18,7 +18,7 @@ class UserController extends Controller
      * @param int $id 表示するユーザーのID
      * @return \Illuminate\View\View
      */
-    public function show($id)
+    public function show(int $id)
     {
        // $id    = Auth::id();
         $user  = User::find($id);
