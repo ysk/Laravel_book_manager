@@ -65,7 +65,7 @@
                                     {{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') }}
                                 </td>
                                 <td>
-                                    {{ $book->user->name }}
+                                    <a href="{{ route('profile.show', ['id' =>$book->user->id]) }}">{{ $book->user->name }}</a>
                                 </td>
                                 <td>
                                     {{ Str::limit($book->item_review, 200) }}

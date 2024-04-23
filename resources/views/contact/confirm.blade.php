@@ -21,25 +21,27 @@
                     </div>
                     @endif
 
-                    <form method="POST" action="{{ route('contact.store') }}">
+                    <form action="{{ route('contact.send') }}" method="post">
                         @csrf
-
-                        <div class="form-group">
-                            <label for="name">お名前</label>
-                            <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $contact_form_data['name'] ?? null) }}">
+                        <!-- 入力内容を表示 -->
+                        <div>
+                            <label>お名前</label>
+                            <p>{{ $contact_form_data['name'] }}</p>
+                        </div>
+                        <div>
+                            <label>メールアドレス</label>
+                            <p>{{ $contact_form_data['email']  }}</p>
+                        </div>
+                        <div>
+                            <label>メッセージ</label>
+                            <p>{{ $contact_form_data['message']  }}</p>
                         </div>
 
-                        <div class="form-group mt-3">
-                            <label for="email">メールアドレス</label>
-                            <input type="email" name="email" id="email" class="form-control" value="{{ old('email', $contact_form_data['email'] ?? null) }}">
-                        </div>
+                    
+                    <!-- 戻るボタン -->
+                    <a class="btn btn-secondary mt-3" href="{{ route('contact.show') }}" style="margin-right: 20px">戻る</a>
 
-                        <div class="form-group mt-3">
-                            <label for="message">メッセージ</label>
-                            <textarea name="message" id="message" class="form-control" rows="5">{{ old('message', $contact_form_data['message'] ?? null) }}</textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary mt-3">送信確認</button>
+                        <button type="submit" class="btn btn-primary mt-3">送信</button>
                     </form>
                 </div>
             </div>

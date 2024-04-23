@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function show($id)
     {
-        $id    = Auth::id();
+       // $id    = Auth::id();
         $user  = User::find($id);
         $books = Book::where('user_id', $id)
                         ->orderBy('created_at', 'desc')

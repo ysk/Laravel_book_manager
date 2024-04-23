@@ -11,18 +11,36 @@ class ContactController extends Controller
 {
     public function show()
     {
-        return view('contact.show');
+        $contactFormData = session('contact_form_data');
+        return view('contact.show', ['contact_form_data' => $contactFormData]);
     }
-
-    public function send(ContactFormRequest $request)
+    
+    public function store(ContactFormRequest $request)
     {
-        $this->sendContactEmails($request);
-        return redirect()->back()->with('message', 'お問い合わせが送信されました。');
+        $contactFormData = $request->all();
+        $request->session()->put('contact_form_data', $contactFormData);
+        return redirect()->route('contact.confirm');
     }
-
-    private function sendContactEmails(Request $request)
+    
+    public function confirm(Request $request)
     {
-        Mail::to('admin@example.com')->send(new ContactFormMail($request->all()));
-        Mail::to($request->email)->send(new ContactFormMail($request->all()));
+        $contactFormData = $request->session()->get('contact_form_data');
+        return view('contact.confirm', ['contact_form_data' => $contactFormData]);
+    }
+    
+    public function send(Request $request)
+    {
+        $contactFormData = $request->session()->get('contact_form_data');
+
+        if (!$contactFormData) {
+            return redirect()->route('contact.show')->with('error', 'お問い合わせフォームが見つかりませんでした。');
+        }
+
+        Mail::to('admin@example.com')->send(new ContactFormMail($contactFormData));
+        Mail::to($contactFormData['email'])->send(new ContactFormMail($contactFormData));
+        
+        // 送信後にセッションを破棄
+        $request->session()->forget('contact_form_data');
+        return redirect()->route('contact.show')->with('message', 'お問い合わせが送信されました。');
     }
 }

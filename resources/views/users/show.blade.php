@@ -42,31 +42,52 @@
                                 <th>カテゴリー</th>
                                 <th>金額</th>
                                 <th>発売日</th>
-                                <th>編集</th>
-                                <th>削除</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($books as $book)
                             <tr>
-                                <td>{{ $book->id }}</td>
-                                <td><a href="{{ route('book.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a></td>
-                                <td>{{ $book->category->name }}</td>
-                                <td>{{ number_format($book->item_amount)}} 円</td>
-                                <td>{{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') }}</td>
-                                @if (Auth::check())
-                                <td><a href="{{ route('book.edit', ['id' => $book->id]) }}" class="btn btn-primary">編集</a></td>
                                 <td>
-                                    <form method="POST" action="{{ route('book.destroy', ['id' => $book->id]) }}">
-                                        @csrf
-                                        <button type="button" class="btn btn-danger js-delete">削除</button>
-                                    </form>
+                                    {{ $book->id }}
                                 </td>
+                                <td>
+                                    <a href="{{ route('book.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a>
+                                </td>
+                                <td>
+                                    {{ $book->category->name }}
+                                </td>
+                                <td>
+                                    @if ($book->item_amount != 0)
+                                    {{ number_format($book->item_amount)}} 円
+                                    @endif
+                                </td>
+                                <td>
+                                    {{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') }}
+                                </td>
+                                @if (Auth::id() == $book->user->id)
+                                    <td>
+                                        <a href="{{ route('book.edit', ['id' => $book->id]) }}" class="btn btn-primary">編集</a>
+                                    </td>
+                                    <td>
+                                        <form method="POST" action="{{ route('book.destroy', ['id' => $book->id]) }}">
+                                            @csrf
+                                            <button type="button" class="btn btn-danger js-delete">削除</button>
+                                        </form>
+                                    </td>
                                 @endif
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+
+                    @if (Auth::id() == $book->user->id)
+                    <div class="pagination justify-content-center" style="margin-top: 20px; margin-bottom:20px;">
+                        <a href="{{ route('book.create') }}" class="btn btn-primary" >新規登録</a>
+                    </div>
+                    @endif
+
                     <!-- // コンテンツ -->
                     <div class="form-buttons text-center">
                         <a href="{{ route('books.index') }}" class="btn btn-secondary">戻る</a>
