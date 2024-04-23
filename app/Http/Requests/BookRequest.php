@@ -10,13 +10,14 @@ class BookRequest extends FormRequest
     {
 
         $rules =  [
-            'user_id'     => 'integer',
-            'category_id' => 'integer',
-            'item_name'   => 'required|string',
-            'item_number' => 'integer',
-            'item_amount' => 'integer',
-            'published'   => 'date',
-            'item_review' => 'string',
+            'user_id'        => 'integer',
+            'category_id'    => 'required|integer',
+            'item_name'      => 'required|string',
+            'item_thumbnail' => 'nullable|image|mimes:png,jpg,gif|max:7168', 
+            'item_number'    => 'nullable|integer',
+            'item_amount'    => 'nullable|integer',
+            'published_at'   => 'nullable|date',
+            'item_review'    => 'nullable|string',
         ];
 
         return $rules;

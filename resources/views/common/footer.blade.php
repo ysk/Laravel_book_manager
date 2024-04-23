@@ -1,4 +1,4 @@
-<footer class="footer mt-auto py-3 bg-secondary fixed-bottom">
+<footer class="footer mt-auto py-3 bg-secondary">
     <div class="container text-center">
         <div class="row col-md-5" style="margin: auto">
             <div class="col">

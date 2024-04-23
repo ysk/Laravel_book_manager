@@ -18,7 +18,7 @@
                     <!-- コンテンツ -->
                     <div class="book-form">
                         <h4>書籍更新</h4>
-                        <form method="POST" action="{{ route('book.update', ['id' => $book->id]) }}">
+                        <form method="POST" enctype="multipart/form-data" action="{{ route('book.update', ['id' => $book->id]) }}">
                             @csrf
                             <div class="row mb-3">
                                 <div class="col-md-6">
@@ -53,8 +53,8 @@
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-4">
-                                    <label for="published" class="form-label">出版日</label>
-                                    <input type="date" name="published" value="{{ old('published', $book->published) }}" class="form-control">
+                                    <label for="published_at" class="form-label">出版日</label>
+                                    <input type="date" name="published_at" value="{{ old('published_at', $book->published_at) }}" class="form-control">
                                 </div>
                             </div>
                             <div class="row mb-3">

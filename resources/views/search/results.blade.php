@@ -23,7 +23,7 @@
                                 <td><a href="{{ route('book.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a></td>
                                 <td>{{ $book->category ? $book->category->name : '-' }}</td>
                                 <td>{{ number_format($book->item_amount)}} 円</td>
-                                <td>{{ $book->published->format('Y年m月d日') }}</td>
+                                <td>{{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') }}</td>
                                 <td>{{ $book->user->name }}</td>
                                 <td>{{ Str::limit($book->item_review,200) }}</td>
                                 <td>

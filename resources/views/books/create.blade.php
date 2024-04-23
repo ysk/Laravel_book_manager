@@ -20,7 +20,7 @@
                     <!-- コンテンツ -->
                     <div class="book-form">
                         <h4>新規書籍登録</h4>
-                        <form method="POST" action="{{ route('book.store') }}">
+                        <form method="POST" action="{{ route('book.store') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row mb-3">
@@ -31,6 +31,12 @@
                                         <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                                         @endforeach
                                     </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="item_name" class="form-label">画像</label>
+                                    <input type="file" name="item_thumbnail" class="form-control">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -56,8 +62,8 @@
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <label for="published" class="form-label">出版日</label>
-                                    <input type="date" name="published" value="{{ old('published') }}" class="form-control">
+                                    <label for="published_at" class="form-label">出版日</label>
+                                    <input type="date" name="published_at" value="{{ old('published_at') }}" class="form-control">
                                 </div>
                             </div>
                             <div class="row mb-3">

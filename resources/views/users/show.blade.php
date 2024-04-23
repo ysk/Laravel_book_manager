@@ -15,7 +15,7 @@
                     @endif
 
                     <!-- コンテンツ -->
-                    <h4>{{ $user->name }}さんの読書履歴</h4>
+                    <h4>{{ $user->name }} さんの本棚</h4>
 
                     @if(isset($user->userprof->user_id))
                     <table class="table">
@@ -37,12 +37,11 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>#</th>
                                 <th>ID</th>
-                                <th>アイテム名</th>
-                                <th>アイテム番号</th>
-                                <th>アイテム金額</th>
-                                <th>公開日</th>
+                                <th>書籍名</th>
+                                <th>カテゴリー</th>
+                                <th>金額</th>
+                                <th>発売日</th>
                                 <th>編集</th>
                                 <th>削除</th>
                             </tr>
@@ -50,12 +49,11 @@
                         <tbody>
                             @foreach ($books as $book)
                             <tr>
-                                <td>{{ $book->user_id }}</td>
                                 <td>{{ $book->id }}</td>
                                 <td><a href="{{ route('book.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a></td>
-                                <td>{{ $book->item_number }}</td>
-                                <td>{{ $book->item_amount }}</td>
-                                <td>{{ $book->published }}</td>
+                                <td>{{ $book->category->name }}</td>
+                                <td>{{ number_format($book->item_amount)}} 円</td>
+                                <td>{{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') }}</td>
                                 @if (Auth::check())
                                 <td><a href="{{ route('book.edit', ['id' => $book->id]) }}" class="btn btn-primary">編集</a></td>
                                 <td>

@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\{Auth, Mail};
 use App\Http\Requests\BookRequest;
 use App\Jobs\SendTestMailJob;
-use App\Models\User;
-use App\Models\Book;
-use App\Models\Category;
+use App\Models\{User, Book, Category};
+use Carbon\Carbon;
 
 class BooksController extends Controller
 {
@@ -43,11 +41,18 @@ class BooksController extends Controller
      */
     public function store(BookRequest $request, Book $book)
     {
-        $book->user_id = Auth::id();
+        $file = $request->file('item_thumbnail');
+        if (!is_null($file)) {
+            $filePath = $file->store('public/uploads');
+            $filename = basename($filePath);
+        }
+        $book->user_id        = Auth::id();
         $book->fill($request->validated());
+        $book->item_thumbnail = $filename ?? null;
         $book->save();
-        return redirect('/')->with('message','書籍を登録しました');
+        return redirect('/')->with('message', '書籍を登録しました');
     }
+
 
     /**
      * Display the specified resource.

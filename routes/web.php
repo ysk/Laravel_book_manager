@@ -26,7 +26,7 @@ Route::get('/books/show/{id}', [BooksController::class, 'show'])->name('book.sho
 Route::get('/books/search', [SearchController::class, 'searchQuery'])->name('search.result');
 
 Route::middleware('auth')->group(function () {
-    // 本棚管理
+    // 本棚管gi理
     Route::prefix('books')->group(function () {        
         Route::get('/create', [BooksController::class, 'create'])->name('book.create');
         Route::post('/store', [BooksController::class, 'store'])->name('book.store');

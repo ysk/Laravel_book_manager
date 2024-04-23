@@ -141,7 +141,16 @@ return [
     */
 
     'attributes' => [
-        'item_name' => '書籍名',
+        'item_name'      => '書籍名',
+        'published_at'   => '発売日',
+        'user_id'        => 'ユーザーID',
+        'category_id'    => 'カテゴリ',
+        'item_name'      => '書籍名',
+        'item_thumbnail' => '画像', 
+        'item_number'    => '書籍番号',
+        'item_amount'    => '金額',
+        'published_at'   => '公開日',
+        'item_review'    => '書評',
     ],
 
 ];

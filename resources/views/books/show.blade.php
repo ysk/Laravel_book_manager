@@ -33,7 +33,7 @@
                             </tr>
                             <tr>
                                 <th>発売日</th>
-                                <td>{{ $book->published->format('Y年m月d日') }}</td>
+                                <td>{{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') }}</td>
                             </tr>
                             <tr>
                                 <th>書評</th>

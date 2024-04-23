@@ -1,45 +1,67 @@
 <?php
 
-namespace Database\Seeders;
-
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CategorySeeder extends Seeder
+class CategoriesTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+    public function run()
     {
         DB::table('categories')->insert([
-            'name'    => 'プログラミング言語',
+            [
+                'id' => 1,
+                'name' => 'プログラミング言語',
+                'created_at' => null,
+                'updated_at' => null,
+            ],
+            [
+                'id' => 2,
+                'name' => 'ネットワーク全般',
+                'created_at' => null,
+                'updated_at' => null,
+            ],
+            [
+                'id' => 3,
+                'name' => 'クラウド',
+                'created_at' => null,
+                'updated_at' => null,
+            ],
+            [
+                'id' => 4,
+                'name' => 'サーバー',
+                'created_at' => null,
+                'updated_at' => null,
+            ],
+            [
+                'id' => 5,
+                'name' => 'アルゴリズム',
+                'created_at' => null,
+                'updated_at' => null,
+            ],
+            [
+                'id' => 6,
+                'name' => 'データベース',
+                'created_at' => null,
+                'updated_at' => null,
+            ],
+            [
+                'id' => 7,
+                'name' => 'セキュリティ',
+                'created_at' => null,
+                'updated_at' => null,
+            ],
+            [
+                'id' => 8,
+                'name' => 'マネジメント',
+                'created_at' => null,
+                'updated_at' => null,
+            ],
+            [
+                'id' => 9,
+                'name' => 'その他・ポエム',
+                'created_at' => null,
+                'updated_at' => null,
+            ],
         ]);
-        DB::table('categories')->insert([
-            'name'    => 'ネットワーク全般',
-        ]);
-        DB::table('categories')->insert([
-            'name'    => 'クラウド',
-        ]);
-        DB::table('categories')->insert([
-            'name'    => 'サーバー',
-        ]);
-        DB::table('categories')->insert([
-            'name'    => 'アルゴリズム',
-        ]);
-        DB::table('categories')->insert([
-            'name'    => 'データベース',
-        ]);
-        DB::table('categories')->insert([
-            'name'    => 'セキュリティ',
-        ]);
-        DB::table('categories')->insert([
-            'name'    => 'マネジメント',
-        ]);
-        DB::table('categories')->insert([
-            'name'    => 'その他・ポエム',
-        ]);
-
     }
 }

@@ -30,7 +30,7 @@
                             <tr>
                                 <th></th>
                                 <th>書籍名</th>
-                                <th>カテゴリ</th>
+                                <th>カテゴリー</th>
                                 <th>金額</th>
                                 <th>発売日</th>
                                 <th>投稿者</th>
@@ -44,13 +44,21 @@
                             <tr>
                                 <td>
                                     <div class="thumbnail">
-                                        <img src="https://placehold.jp/100x120.png" alt="ダミー画像" class="img-thumbnail">
+                                        {{-- @php
+                                         var_dump($book);
+                                         exit;   
+                                        @endphp --}}
+                                        @if($book->item_thumbnail)
+                                            <img src="{{ asset('storage/uploads/' . $book->item_thumbnail) }}" alt="{{ $book->item_name }}" class="img-thumbnail" style="width: 150px">
+                                        @else
+                                            <img src="https://placehold.jp/100x120.png" alt="No Image" class="img-thumbnail" style="width: 150px">
+                                        @endif
                                     </div>
                                 </td>
                                 <td><a href="{{ route('book.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a></td>
-                                <td>{{ $book->category ? $book->category->name : '-' }}</td>
+                                <td>{{ $book->category->name }}</td>
                                 <td>{{ number_format($book->item_amount)}} 円</td>
-                                <td>{{ $book->published->format('Y年m月d日') }}</td>
+                                <td>{{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') }}</td>
                                 <td>{{ $book->user->name }}</td>
                                 <td>{{ Str::limit($book->item_review,200) }}</td>
                                 <td>
