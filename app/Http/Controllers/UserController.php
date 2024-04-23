@@ -11,6 +11,13 @@ use App\Models\Category;
 
 class UserController extends Controller
 {
+
+    /**
+     * 指定されたユーザーの情報と関連する書籍を表示
+     *
+     * @param int $id 表示するユーザーのID
+     * @return \Illuminate\View\View
+     */
     public function show($id)
     {
        // $id    = Auth::id();
@@ -23,5 +30,5 @@ class UserController extends Controller
             'books' => $books,
         ]);
     }
-}
 
+}
