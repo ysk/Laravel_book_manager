@@ -18,7 +18,6 @@
                         </ul>
                     </div>
                     @endif
-
                     @if (session('message'))
                         <div class="alert alert-success">
                             {{ session('message') }}
@@ -44,10 +43,6 @@
                             <tr>
                                 <td>
                                     <div class="thumbnail">
-                                        {{-- @php
-                                         var_dump($book);
-                                         exit;   
-                                        @endphp --}}
                                         @if($book->item_thumbnail)
                                             <img src="{{ asset('storage/uploads/' . $book->item_thumbnail) }}" alt="{{ $book->item_name }}" class="img-thumbnail" style="width: 150px">
                                         @else

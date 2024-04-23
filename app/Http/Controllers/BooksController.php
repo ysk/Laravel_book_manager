@@ -24,7 +24,8 @@ class BooksController extends Controller
     {
         $books = Book::with('category')->orderBy('created_at', 'desc')->paginate(5);
         return view('books.index', [
-            'books' => $books
+            'books' => $books,
+            'hogehoge'=>$this->hogehoge()
         ]);
     }
     
@@ -48,7 +49,7 @@ class BooksController extends Controller
         }
         $book->user_id        = Auth::id();
         $book->fill($request->validated());
-        $book->item_thumbnail = $filename ?? null;
+        $book->item_thumbnail = $filename ?? null; //要調査
         $book->save();
         return redirect('/')->with('message', '書籍を登録しました');
     }
@@ -94,4 +95,5 @@ class BooksController extends Controller
         $book->delete();
         return redirect('/')->with('message','書籍を削除しました');
     }
+
 }
