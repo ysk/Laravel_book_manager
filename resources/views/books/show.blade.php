@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-11">
             <div class="card">
-                <div class="card-header">書籍情報詳細</div>
+                <div class="card-header"><i class="fa-solid fa-book"></i>書籍情報詳細</div>
 
                 <div class="card-body">
                     @if (session('message'))
@@ -26,36 +26,42 @@
                         </div>
                         <table class="table">
                             <tr>
-                                <th>投稿者</th>
+                                <th><i class="fa-solid fa-user-pen"></i>投稿者</th>
                                 <td>{{ $book->user->name }}</td>
                             </tr>
                             <tr>
-                                <th>書籍名</th>
+                                <th><i class="fa-solid fa-book"></i>書籍名</th>
                                 <td>{{ $book->item_name }}</td>
                             </tr>
                             <tr>
-                                <th>価格</th>
+                                <th><i class="fa-solid fa-yen-sign"></i>価格</th>
                                 <td>
-                                    @if ($book->item_amount != 0)
-                                    {{ number_format($book->item_amount)}} 円
+                                    @if ($book->item_price != 0)
+                                    {{ number_format($book->item_price)}} 円
                                     @endif
                                 </td>
                             </tr>
                             <tr>
-                                <th>発売日</th>
+                                <th><i class="fa-regular fa-calendar"></i>出版日</th>
                                 <td>
                                     {{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') }}
                                 </td>
                             </tr>
                             <tr>
-                                <th>書評</th>
+                                <th><i class="fa-regular fa-comment-dots"></i>投稿者の書評</th>
                                 <td>
                                     {!! nl2br( $book->item_review) !!}
                                 </td>
                             </tr>
                         </table>
+
+
+
                         <div class="form-buttons text-center">
-                            <a href="{{ route('books.index') }}" class="btn btn-secondary" >戻る</a>
+                            @if (Auth::id() == $book->user->id)
+                            <a href="{{ route('book.edit', ['id' => $book->id]) }}" class="btn btn-primary">編集</a>
+                            @endif
+                            <a href="{{ route('books.index') }}" class="btn btn-secondary" >TOPに戻る</a>
                         </div>
                     </div>
                     <!-- // コンテンツ -->

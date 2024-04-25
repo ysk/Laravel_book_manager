@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     BooksController,
     UserController,
+    UserprofController,
     SearchController,
     ContactController,
     PageController
@@ -39,7 +40,9 @@ Route::middleware('auth')->group(function () {
     });
     // ユーザー管理
     Route::prefix('user')->group(function () {
-        Route::get('/show/{id}', [UserController::class, 'show'])->name('profile.show');
+        Route::get('/show/{id}', [UserprofController::class, 'show'])->name('profile.show');
+        Route::get('/edit/{id}', [UserprofController::class, 'edit'])->name('profile.edit');
+        Route::post('/update/{id}', [UserprofController::class, 'update'])->name('profile.update');
     });
 });
 

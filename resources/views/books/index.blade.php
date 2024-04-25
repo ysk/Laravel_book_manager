@@ -5,8 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-11">
             <div class="card">
-                <div class="card-header">投稿された技術書一覧</div>
-
+                <div class="card-header"><i class="fa-regular fa-rectangle-list"></i>技術書一覧</div>
                 <div class="card-body">
                     <!-- コンテンツ -->
                     @if ($errors->any())
@@ -28,11 +27,11 @@
                         <thead class="thead">
                             <tr>
                                 <th class="item_thumbnail"></th>
-                                <th class="item_name">書籍名</th>
-                                <th class="item_category">カテゴリー</th>
-                                <th class="item_published_at">出版日</th>
-                                <th class="item_review">書評</th>
-                                <th class="item_user_id">投稿者</th>
+                                <th class="item_name"><i class="fa-solid fa-book"></i>書籍名</th>
+                                <th class="item_category"><i class="fa-solid fa-table-columns"></i>カテゴリー</th>
+                                <th class="item_published_at"><i class="fa-regular fa-calendar"></i>出版日</th>
+                                <th class="item_review"><i class="fa-regular fa-comment-dots"></i>投稿者の書評</th>
+                                <th class="item_user_id"><i class="fa-solid fa-user-pen"></i>投稿者</th>
                             </tr>
                         </thead>
                         <tbody class="tbody">
@@ -72,7 +71,7 @@
                     </div>
 
                     <div class="pagination justify-content-center" style="margin-top: 20px;">
-                        <a href="{{ route('book.create') }}" class="btn btn-primary" >新規登録</a>
+                        <a href="{{ route('book.create') }}" class="btn btn-primary" ><i class="fa-regular fa-pen-to-square"></i>本を追加する</a>
                     </div>
                     <!-- // コンテンツ -->
                 </div>

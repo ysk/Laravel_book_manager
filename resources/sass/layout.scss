@@ -1,6 +1,35 @@
-/* 共通設定 */
+//////////////////////////////////////
+// カラーパレット
+:root {
+    --primary-color: #357a00;
+    --primary-hover-color: #3C8C00;
+    --text-color: #272727;
+    --background-color: #f5f6f6;
+}
+
+//////////////////////////////////////
+// 基本スタイル
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
-    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-bottom: 200px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.75;
+
+    main {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0%;
+    }
 }
 
 h1 {
@@ -8,160 +37,334 @@ h1 {
 }
 
 a {
+    color: var(--text-color);
     text-decoration: underline;
-    color: #400040;
+
     &:hover {
         text-decoration: none;
     }
 }
 
-/* ヘッダー、ナビゲーション */
-.navbar {
-    padding: 5px;
+i {
+    padding-right: 5px;
 }
 
-.navbar-subtitle {
-    margin-bottom: 0;
+.img-thumbnail {
+    border-radius: 0;
+    padding: 2px;
 }
 
-/* フッター */
-.footer {
+
+//////////////////////////////////////
+/// 共通パーツ
+// ページング処理
+.pagination {
+    .sm\:justify-between {
+        display: block;
+    }
+}
+
+// ページトップ
+.pagetop {
+
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    background: #fff;
+    border: solid 2px #000;
+    border-radius: 50%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    cursor: pointer;
+
+    .pagetop__arrow {
+        display: block;
+        height: 10px;
+        width: 10px;
+        border-top: 3px solid #000;
+        border-right: 3px solid #000;
+        transform: translateY(20%) rotate(-45deg);
+    }
+}
+
+
+// ヘッダー＆ナビゲーション
+.header {
     a {
+        text-decoration: none;
+    }
+
+    .navbar {
+        padding: 5px;
+    }
+
+    .navbar-subtitle {
+        margin-bottom: 0;
+    }
+
+    .register-btn {
+        margin-left: 10px;
+    }
+
+    .btn-register.btn-primary {
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        background: var(--primary-color);
+        border: solid 1px var(--primary-color);
+
+        &:hover {
+            background: var(--primary-hover-color);
+            border: solid 1px var(--primary-color);
+        }
+    }
+}
+
+// フッター
+.footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    a {
+        text-decoration: none;
         font-size: 12px;
     }
-}
 
-.card-header {
-    font-weight: bold;
-}
+    .footer-list {
+        display: table;
+        margin: auto;
 
-/* ボタン */
-.btn-primary {
-    background: #008040;
-    border: solid 1px #00793D;
-    &:hover {
-        background: #009F50;
+        &-item {
+            display: table-cell;
+
+            &:not(:last-child)::after {
+                content: "|";
+                padding: 10px;
+            }
+        }
     }
 }
 
-/* プライバシーポリシー */
-#privacy {
+// カード
+.card {
+    border: none;
+
+    .card-header {
+        font-weight: bold;
+        background-color: var(--background-color);
+        border-bottom: #E3E3E3 solid 1px;
+        border-left: #E3E3E3 solid 10px;
+        border-radius: 0;
+    }
+
+    .card-body {
+        border: none;
+        padding: 20px 15px;
+    }
+
+    /* ボタン */
+    .btn-primary {
+        background: var(--primary-color);
+        border: solid 1px var(--primary-color);
+
+        &:hover {
+            background: var(--primary-hover-color);
+            border: solid 1px var(--primary-color);
+        }
+    }
+}
+
+//////////////////////////////////////
+// ユーザー情報
+#user_edit,
+#user_show {
+    .table th {
+        width: 200px;
+    }
+
     section {
-        margin-bottom: 30px;
-        h2 {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        p {
-            font-size: 14px;
-        }
+        margin-bottom: 40px;
     }
 }
 
-/* このサイトについて */
-#about {
+#user_show {
+    .table th {
+        width: 150px;
+
+    }
+
     section {
-        margin-bottom: 30px;
-        h2 {
-            font-size: 24px;
-            font-weight: bold;
+        margin-bottom: 40px;
+    }
+
+    section.user_info {
+        
+    }
+
+    section.book_list {
+        .item_id {
+            width: 30px;
         }
-        p {
-            font-size: 14px;
+
+        .item_name {
+            width: 150px;
         }
-        ul {
-            list-style: inside;
+
+        .item_category {
+            width: 150px;
         }
+
+        .item_price {
+            width: 150px;
+        }
+
+        .item_published_at {
+            width: 150px;
+        }
+
+        .item_review {
+            width: auto;
+        }
+
+        .item_edit,
+        .item_delete {
+            width: 59px;
+            text-align: center;
+
+            a,button {
+                padding: 4px 7px;
+                font-size: 11px;
+            }
+        }
+
     }
 }
 
-/* TOPページ書籍一覧 */
+//////////////////////////////////////
+/// 書籍関連
+// 書籍一覧
 #books_index {
     .thead {
         .item_thumbnail {
-            width: 150px;
+            width: 100px;
             text-align: center;
         }
+
         .item_name {
             width: 200px;
         }
+
         .item_price {
             width: 250px;
         }
+
         .item_category {
             width: 150px;
         }
+
         .item_published_at {
             width: 150px;
         }
+
         .item_user_id {
             width: 100px;
         }
+
         .item_review {
             /* width: 300px; */
         }
     }
+
     .tbody {
-        .item_name {
-        }
+        .item_name {}
     }
-    .btn-primary {
-        width: 30%;
-        padding: 10px 0;
-        background: #008040;
-        border: solid 1px #00793D;
-        &:hover {
-            background: #009F50;
-            border: solid 1px #00793D;
+
+    .card-body {
+        .btn-primary {
+            width: 30%;
+            padding: 10px 0;
+            background: var(--primary-color);
+            border: solid 1px var(--primary-color);
+
+            &:hover {
+                background: var(--primary-hover-color);
+                border: solid 1px var(--primary-color);
+            }
         }
     }
 }
 
-/* 書籍詳細情報 */
-#books_show{
+// 書籍詳細情報 表示
+#books_show {
+    i {
+        padding-right: 15px;
+        display: inline-block;
+        width: 20px;
+    }
 
+    .book-details h4 {
+        font-weight: bold;
+        margin: 0 0 20px 0;
+    }
+
+    .thumbnail {
+        margin: 20px 0;
+    }
+
+    .table th {
+        width: 200px;
+    }
 }
 
-/* 書籍検索結果一覧 */
+// 書籍詳細情報 編集
+#books_edit {
+    .table th {
+        width: 200px;
+    }
+    .table textarea {
+        height: 150px;
+    }
+}
+
+// 書籍検索結果一覧
 #search_results {
     .thead {
         .item_thumbnail {
-            width: 150px;
+            width: 100px;
             text-align: center;
         }
+
         .item_name {
             width: 200px;
         }
+
         .item_price {
             width: 250px;
         }
+
         .item_category {
             width: 150px;
         }
+
         .item_published_at {
             width: 150px;
         }
+
         .item_user_id {
             width: 100px;
         }
-        .item_review {
-            /* width: 300px; */
-        }
     }
+
     .tbody {
-        .item_name {
-        }
+        .item_name {}
     }
-    .btn-primary {
-        width: 30%;
-        padding: 10px 0;
-        background: #008040;
-        border: solid 1px #00793D;
-        &:hover {
-            background: #009F50;
-            border: solid 1px #00793D;
-        }
-    }
+
     .search-results {
         text-align: center;
         font-size: 16px;
@@ -169,16 +372,19 @@ a {
     }
 }
 
-/* SPサイト用スタイル */
+//////////////////////////////////////
+// スマートフォン用スタイル
 @media (max-width: 767px) {
     #books_index {
-        .table tr > td:last-child {
+        .table tr>td:last-child {
             margin-bottom: 20px;
             border-bottom: none;
         }
+
         .table th {
             display: none;
         }
+
         .table td {
             display: block;
             padding: 5px;
@@ -188,9 +394,62 @@ a {
     }
 }
 
-/* ページング処理 */
-.pagination {
-    .sm\:justify-between {
-        display: block;
+//////////////////////////////////////
+/// 静的ページ
+// プライバシーポリシー
+#privacy {
+    section {
+        margin-bottom: 30px;
+
+        h2 {
+            font-size: 22px;
+            font-weight: bold;
+            border-left: solid 5px var(--text-color);
+            padding-left: 10px;
+        }
+
+        h3 {
+            font-size: 18px !important;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: inside;
+        }
     }
 }
+
+// このサイトについて
+#about {
+    section {
+        margin-bottom: 50px;
+
+        h2 {
+            font-size: 22px;
+            font-weight: bold;
+            border-left: solid 5px var(--text-color);
+            padding-left: 10px;
+        }
+
+        h3 {
+            font-size: 18px !important;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: inside;
+        }
+    }
+}
+
+

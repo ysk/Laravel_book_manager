@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-11">
             <div class="card">
-                <div class="card-header">技術書一覧</div>
+                <div class="card-header"><i class="fa-regular fa-rectangle-list"></i>技術書一覧</div>
 
                 @if($books->count() > 0)
                 <div class="search-results">
@@ -15,11 +15,11 @@
                     <thead class="thead">
                         <tr>
                             <th class="item_thumbnail"></th>
-                            <th class="item_name">書籍名</th>
-                            <th class="item_category">カテゴリー</th>
-                            <th class="item_published_at">出版日</th>
-                            <th class="item_review">書評</th>
-                            <th class="item_user_id">投稿者</th>
+                            <th class="item_name"><i class="fa-solid fa-book"></i>書籍名</th>
+                            <th class="item_category"><i class="fa-solid fa-table-columns"></i>カテゴリー</th>
+                            <th class="item_published_at"><i class="fa-regular fa-calendar"></i>出版日</th>
+                            <th class="item_review"><i class="fa-regular fa-comment-dots"></i>投稿者の書評</th>
+                            <th class="item_user_id"><i class="fa-solid fa-user-pen"></i>投稿者</th>
                         </tr>
                     </thead>
                     <tbody class="tbody">
@@ -47,7 +47,7 @@
                                 {{ Str::limit($book->item_review, 200) }}
                             </td>
                             <td class="item_user_id">
-                                {{ $book->user->name }}
+                                {{ $book->user->name ?? null }}
                             </td>
                         </tr>
                     @endforeach

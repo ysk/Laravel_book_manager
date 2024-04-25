@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{Auth, Mail};
 use App\Http\Requests\BookRequest;
 use App\Jobs\SendTestMailJob;
-use App\Models\{User, Book, Category};
+use App\Models\{Book,Category,User,Userprof};
 use Carbon\Carbon;
 
 class BooksController extends Controller
@@ -104,7 +104,7 @@ class BooksController extends Controller
         $book = Book::find($id);
         $book->fill($request->validated());
         $book->save();
-        return redirect('/')->with('message','書籍を更新しました');
+        return redirect('/books/show/'.$book->id)->with('message','書籍を更新しました');
     }
 
     /**

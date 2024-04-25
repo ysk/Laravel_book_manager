@@ -17,11 +17,6 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-
-            $table->string('text')->nullable(); //自己紹介
-            $table->string('url')->nullable(); //サイトURL
-            $table->string('image_file_name')->nullable(); //アバターの実装
-
             $table->rememberToken();
             $table->timestamps();
         });

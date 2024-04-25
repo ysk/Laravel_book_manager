@@ -68,13 +68,13 @@
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-11">
-                                    <label for="item_review" class="form-label">書評</label>
+                                    <label for="item_review" class="form-label">投稿者の書評</label>
                                     <textarea name="item_review" class="form-control">{{ old('item_review')}}</textarea>
                                 </div>
                             </div>   
                             <div class="form-buttons text-center">
-                                <button type="submit" class="btn btn-primary" style="margin-right: 20px">登録</button>
-                                <a href="{{ route('books.index') }}" class="btn btn-secondary">戻る</a>
+                                <a href="{{ route('books.index') }}" class="btn btn-secondary" style="margin-right: 20px">TOPに戻る</a>
+                                <button type="submit" class="btn btn-primary">登録する</button>
                             </div>
                         </form>
                     </div>

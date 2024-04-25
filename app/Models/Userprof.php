@@ -12,8 +12,12 @@ class Userprof extends Model
 
     protected $table = 'userprofs';
 
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $fillable = [
+        'prof_thumbnail	',
+        'address',
+        'github_url',
+        'prof_text',
+    ];
+
+
 }

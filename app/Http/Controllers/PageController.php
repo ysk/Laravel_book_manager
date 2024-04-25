@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\{Book,Category,User,Userprof};
 
 class PageController extends Controller
 {
