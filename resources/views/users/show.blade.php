@@ -30,7 +30,7 @@
                             <th></th>
                             <td>
                                 <div class="thumbnail">
-                                    @if($user->userprof->prof_thumbnail)
+                                    @if(isset($user->userprof->prof_thumbnail))
                                         <img src="{{ asset('storage/uploads/' . $user->userprof->prof_thumbnail) }}" alt="{{ $user->name }}" class="img-thumbnail" style="width: 150px">
                                     @else
                                         <img src="{{ asset('images/no_image.png') }}" alt="No Image" class="img-thumbnail" style="width: 150px">
