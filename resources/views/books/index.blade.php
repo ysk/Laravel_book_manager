@@ -71,7 +71,7 @@
                     </div>
 
                     <div class="pagination justify-content-center" style="margin-top: 20px;">
-                        <a href="{{ route('book.create') }}" class="btn btn-primary" ><i class="fa-regular fa-pen-to-square"></i>本を追加する</a>
+                        <a href="{{ route('book.create') }}" class="btn btn-primary" ><i class="fa-regular fa-pen-to-square"></i>本を登録する</a>
                     </div>
                     <!-- // コンテンツ -->
                 </div>

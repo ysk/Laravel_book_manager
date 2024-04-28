@@ -73,20 +73,21 @@ i {
     right: 30px;
     bottom: 30px;
     background: #fff;
-    border: solid 2px #000;
+    border: solid 1px #4C4C4C;
     border-radius: 50%;
     display: none;
     justify-content: center;
     align-items: center;
     z-index: 90;
     cursor: pointer;
+    opacity: .8;
 
     .pagetop__arrow {
         display: block;
         height: 10px;
         width: 10px;
-        border-top: 3px solid #000;
-        border-right: 3px solid #000;
+        border-top: 3px solid #222222;
+        border-right: 3px solid #222222;
         transform: translateY(20%) rotate(-45deg);
     }
 }
@@ -96,6 +97,13 @@ i {
 .header {
     a {
         text-decoration: none;
+    }
+
+    .navbar-subtitle {
+        font-size: 12px;
+        margin-top: -10px;
+        letter-spacing: 1px;
+        color: #fff;
     }
 
     .navbar {
@@ -121,6 +129,38 @@ i {
             background: var(--primary-hover-color);
             border: solid 1px var(--primary-color);
         }
+    }
+
+    .navbar-nav {
+        form {
+            position: relative;
+            top: 5px;
+            right: 5px;
+        }
+    }
+
+    .thumbnail {
+        margin: 0;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        flex-shrink: 0;
+
+        .img-thumbnail {
+            padding: 0;
+            border: none;
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .nav-link.dropdown-toggle {
+        display: flex;
+        align-items: center;
+    }
+    .dropdown-menu {
+        margin-top: 4px;
     }
 }
 
@@ -185,7 +225,7 @@ i {
 #user_edit,
 #user_show {
     .table th {
-        width: 200px;
+        width: 130px;
     }
 
     section {
@@ -193,9 +233,17 @@ i {
     }
 }
 
+// ユーザー情報 表示
 #user_show {
-    .table th {
-        width: 150px;
+    .table td {
+        .thumbnail {
+            width: 100px;
+
+            img {
+                width: 100%;
+                border-radius: 50%;
+            }
+        }
 
     }
 
@@ -203,9 +251,7 @@ i {
         margin-bottom: 40px;
     }
 
-    section.user_info {
-        
-    }
+    section.user_info {}
 
     section.book_list {
         .item_id {
@@ -237,13 +283,24 @@ i {
             width: 59px;
             text-align: center;
 
-            a,button {
+            a,
+            button {
                 padding: 4px 7px;
                 font-size: 11px;
             }
         }
 
     }
+}
+
+
+// ユーザー情報 編集
+#user_edit{
+    .table{
+        textarea{
+            height: 200px;
+        }
+    }   
 }
 
 //////////////////////////////////////
@@ -300,6 +357,13 @@ i {
     }
 }
 
+// 書籍詳細情報 登録
+#books_create{
+    textarea{
+        height: 100px;
+    }
+}
+
 // 書籍詳細情報 表示
 #books_show {
     i {
@@ -327,6 +391,7 @@ i {
     .table th {
         width: 200px;
     }
+
     .table textarea {
         height: 150px;
     }
@@ -451,5 +516,3 @@ i {
         }
     }
 }
-
-

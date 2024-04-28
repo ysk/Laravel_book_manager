@@ -13,8 +13,9 @@ class Userprof extends Model
     protected $table = 'userprofs';
 
     protected $fillable = [
-        'prof_thumbnail	',
+        'prof_thumbnail',
         'address',
+        'phone',
         'github_url',
         'prof_text',
     ];

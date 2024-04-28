@@ -4,14 +4,21 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class UserprofRequest
+ *
+ * @package App\Http\Requests
+ */
 class UserprofRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return bool
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,9 +29,6 @@ class UserprofRequest extends FormRequest
     public function rules(): array
     {
         $rules =  [
-            'user_id'        => 'integer',
-            'category_id'    => 'required|integer',
-            'item_name'      => 'required|string',
             'prof_thumbnail' => 'nullable|image|mimes:png,jpg,gif|max:7168', 
             'address'        => 'nullable|string',
             'phone'          => 'nullable|string',

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-11">
             <div class="card">
-                <div class="card-header"><i class="fa-solid fa-book"></i> 書籍情報詳細</div>
+                <div class="card-header"><i class="fa-solid fa-book"></i> 登録した本の編集</div>
                 <div class="card-body">
                     @if ($errors->any())
                     <div class="alert alert-danger">

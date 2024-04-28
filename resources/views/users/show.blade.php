@@ -8,9 +8,17 @@
                 <div class="card-header"><i class="fa-solid fa-user"></i>{{ $user->name }}さんのマイページ</div>
 
                 <div class="card-body">
-                    @if (session('status'))
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        @foreach ($errors->all() as $error)
+                            <div>{{ $error }}</div>
+                        @endforeach
+                    </div>
+                    @endif
+
+                    @if (session('message'))
                     <div class="alert alert-success">
-                        {{ session('status') }}
+                        {{ session('message') }}
                     </div>
                     @endif
 
@@ -19,9 +27,15 @@
                     <h4>ユーザー情報</h4>
                     <table class="table">
                         <tr>
-                            <th>アバター</th>
+                            <th></th>
                             <td>
-                                {{ $user->userprof->prof_thumbnail ?? 'なし' }}
+                                <div class="thumbnail">
+                                    @if($user->userprof->prof_thumbnail)
+                                        <img src="{{ asset('storage/uploads/' . $user->userprof->prof_thumbnail) }}" alt="{{ $user->name }}" class="img-thumbnail" style="width: 150px">
+                                    @else
+                                        <img src="{{ asset('images/no_image.png') }}" alt="No Image" class="img-thumbnail" style="width: 150px">
+                                    @endif
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -39,7 +53,7 @@
                         <tr>
                             <th>GitHub</th>
                             <td>
-                                <a href="{{ $user->userprof->github_url }}" target="_blank">{{ $user->userprof->github_url ?? '未設定' }}</a>
+                                <a href="{{ $user->userprof->github_url ?? null}}" target="_blank">{{ $user->userprof->github_url ?? '未設定' }}</a>
                             </td>
                         </tr>
                         <tr>

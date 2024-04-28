@@ -6,7 +6,6 @@
         <div class="col-md-11">
             <div class="card">
                 <div class="card-header"><i class="fa-regular fa-rectangle-list"></i>技術書一覧</div>
-
                 @if($books->count() > 0)
                 <div class="search-results">
                     <p>{{$books->count()}} 件がヒットしました。</p>
@@ -52,20 +51,15 @@
                         </tr>
                     @endforeach
                 </table>
-
                 <div class="pagination justify-content-center mt-3">
                     {{ $books->links() }}
                 </div>
-
                 @else
                 <div class="search-results">
                     <p>検索結果はありませんでした</p>
                 </div>
-                    
-
                 @endif
-                    <!-- // コンテンツ -->
-
+                <!-- // コンテンツ -->
             </div>
         </div>
     </div>

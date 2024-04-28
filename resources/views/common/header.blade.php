@@ -16,9 +16,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('pages.about') }}">Tech Cacheについて</a>
                     </li>
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" href="#">Ranking</a>
-                    </li> --}}
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -55,11 +52,26 @@
                     @else
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ Auth::user()->name }}
+                                <div class="d-flex align-items-center">
+                                    <div class="thumbnail me-2">
+                                        @if(isset($user->userprof->prof_thumbnail))
+                                            <img src="{{ asset('storage/uploads/' . $user->userprof->prof_thumbnail) }}" alt="{{ $user->name }}" class="img-thumbnail">
+                                        @else
+                                            <img src="{{ asset('images/no_image.png') }}" alt="No Image" class="img-thumbnail">
+                                        @endif
+                                    </div>
+                                    <div>{{ Auth::user()->name }}</div>
+                                </div>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{{ route('profile.show', [ 'id' => Auth::user()->id ]) }}"><i class="fa-regular fa-user"></i>マイページ</a></li>
-                                <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa-solid fa-arrow-right-from-bracket"></i>ログアウト</a>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('profile.show', [ 'id' => Auth::user()->id ]) }}"><i class="fa-regular fa-user"></i>マイページ</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('book.create') }}"><i class="fa-regular fa-pen-to-square"></i>本を登録する</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa-solid fa-arrow-right-from-bracket"></i>ログアウト</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>

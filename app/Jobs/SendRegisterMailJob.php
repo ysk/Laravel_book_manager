@@ -27,6 +27,6 @@ class SendRegisterMailJob implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to('recipient@example.com')->send(new SendRegisterMail());
+        Mail::to('techcache.info@gmail.com')->send(new SendRegisterMail());
     }
 }

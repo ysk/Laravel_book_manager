@@ -16,26 +16,45 @@ class UserprofController extends Controller
      */
     public function show(int $id)
     {
-        $user  = User::find($id);
-        $books = Book::where('user_id', $id)
-                        ->orderBy('created_at', 'desc')
-                        ->paginate(15);
+        $books = Book::where('user_id', $id)->orderBy('created_at', 'desc')->paginate(15);
         return view('users.show', [
-            'user'    => $user,
             'books'   => $books,
             'body_id' => 'user_show',
         ]);
     }
 
-    public function edit(int $id){
-        $user  = User::find($id);
-        $books = Book::where('user_id', $id)
-                        ->orderBy('created_at', 'desc')
-                        ->paginate(15);
+    public function edit(int $id)
+    {
+        $books = Book::where('user_id', $id)->orderBy('created_at', 'desc')->paginate(15);
         return view('users.edit', [
-            'user'    => $user,
             'books'   => $books,
             'body_id' => 'user_edit',
         ]);
     }
+
+    public function update(UserprofRequest $request, int $id)
+    {
+
+        $file = $request->file('prof_thumbnail');
+        $filename = null;
+    
+        if (!is_null($file)) {
+            $filePath = $file->store('public/uploads');
+            $filename = basename($filePath);
+        }
+    
+        $userProf = Userprof::where('user_id', $id)->first();
+        if (!$userProf) {
+            $userProf = new Userprof();
+            $userProf->user_id = $id;
+        }
+
+        $userProf->fill($request->validated());
+        $userProf->prof_thumbnail = $filename;
+        $userProf->save();
+    
+        return redirect()->route('profile.show', ['id' => $id])->with('message', '書籍を更新しました');
+    }
+    
+    
 }

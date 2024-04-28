@@ -5,8 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">新規書籍登録</div>
-
+                <div class="card-header"><i class="fa-solid fa-book"></i> 新規登録</div>
                 <div class="card-body">
 
                     @if ($errors->any())
@@ -18,64 +17,58 @@
                     @endif
 
                     <!-- コンテンツ -->
-                    <div class="book-form">
-                        <h4>新規書籍登録</h4>
+                    <div class="book-details">
+                        <h4>技術書の情報を入力してください</h4>
                         <form method="POST" action="{{ route('book.store') }}" enctype="multipart/form-data">
                             @csrf
-
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="category_id" class="form-label">カテゴリ</label>
-                                    <select name="category_id" class="form-select">
-                                        @foreach($categories as $category)
-                                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="item_name" class="form-label">画像</label>
-                                    <input type="file" name="item_thumbnail" class="form-control">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="item_name" class="form-label">書籍名</label>
-                                    <input type="text" name="item_name" value="{{ old('item_name') }}" class="form-control">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="item_number" class="form-label">No</label>
-                                    <input type="text" name="item_number" value="{{ old('item_number') }}" class="form-control">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="item_price" class="form-label">金額</label>
-                                    <div class="input-group">
+                            <table class="table">
+                                <tr>
+                                    <th><i class="fa-regular fa-image"></i> 表紙画像</th>
+                                    <td>
+                                        <input type="file" name="item_thumbnail" class="form-control">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><i class="fa-solid fa-book"></i> 書籍名</th>
+                                    <td>
+                                        <input type="text" name="item_name" value="{{ old('item_name') }}" class="form-control">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><i class="fa-solid fa-table-columns"></i> カテゴリー</th>
+                                    <td>
+                                        <select name="category_id" class="form-select">
+                                            @foreach($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><i class="fa-solid fa-yen-sign"></i> 価格</th>
+                                    <td>
                                         <input type="text" name="item_price" value="{{ old('item_price') }}" class="form-control">
-                                        <span class="input-group-text">円</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="published_at" class="form-label">出版日</label>
-                                    <input type="date" name="published_at" value="{{ old('published_at') }}" class="form-control">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-md-11">
-                                    <label for="item_review" class="form-label">投稿者の書評</label>
-                                    <textarea name="item_review" class="form-control">{{ old('item_review')}}</textarea>
-                                </div>
-                            </div>   
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><i class="fa-regular fa-calendar"></i> 出版日</th>
+                                    <td>
+                                        <input type="date" name="published_at" value="{{ old('published_at') }}" class="form-control">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><i class="fa-regular fa-comment-dots"></i> 投稿者の書評</th>
+                                    <td>
+                                        <textarea name="item_review" class="form-control">{{ old('item_review') }}</textarea>
+                                    </td>
+                                </tr>
+                            </table>
+
                             <div class="form-buttons text-center">
                                 <a href="{{ route('books.index') }}" class="btn btn-secondary" style="margin-right: 20px">TOPに戻る</a>
                                 <button type="submit" class="btn btn-primary">登録する</button>
                             </div>
+
                         </form>
                     </div>
                     <!-- // コンテンツ -->
