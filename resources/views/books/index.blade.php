@@ -47,7 +47,7 @@
                                     </div>
                                 </td>
                                 <td class="item_name">
-                                    <a href="{{ route('book.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a>
+                                    <a href="{{ route('books.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a>
                                 </td>
                                 <td class="item_category">
                                     <a href="/books/search?category_id={{$book->category->id }}">{{$book->category->name }}</a>
@@ -59,7 +59,7 @@
                                     {{ Str::limit($book->item_review, 200) }}
                                 </td>
                                 <td class="item_user_id">
-                                    <a href="{{ route('profile.show', ['id' =>$book->user->id]) }}">{{ $book->user->name }}</a>
+                                    <a href="{{ route('user.show', ['id' =>$book->user->id]) }}">{{ $book->user->name }}</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -71,7 +71,7 @@
                     </div>
 
                     <div class="pagination justify-content-center" style="margin-top: 20px;">
-                        <a href="{{ route('book.create') }}" class="btn btn-primary" ><i class="fa-regular fa-pen-to-square"></i>本を登録する</a>
+                        <a href="{{ route('books.create') }}" class="btn btn-primary" ><i class="fa-regular fa-pen-to-square"></i>本を登録する</a>
                     </div>
                     <!-- // コンテンツ -->
                 </div>

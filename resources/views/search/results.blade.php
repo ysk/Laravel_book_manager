@@ -34,7 +34,7 @@
                                 </div>
                             </td>
                             <td class="item_name">
-                                <a href="{{ route('book.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a>
+                                <a href="{{ route('books.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a>
                             </td>
                             <td class="item_category">
                                 <a href="/books/search?category_id={{$book->category->id }}">{{$book->category->name }}</a>

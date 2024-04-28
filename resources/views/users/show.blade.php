@@ -64,7 +64,7 @@
                         </tr>
                     </table>
                     <div class="form-buttons text-center">
-                        <a href="{{ route('profile.edit', ['id' => $user->id]) }}" class="btn btn-primary">プロフィールの編集</a>
+                        <a href="{{ route('user.edit', ['id' => $user->id]) }}" class="btn btn-primary">プロフィールの編集</a>
                     </div>
                     </section>
 
@@ -90,7 +90,7 @@
                                     {{ $book->id }}
                                 </td>
                                 <td class="item_name">
-                                    <a href="{{ route('book.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a>
+                                    <a href="{{ route('books.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a>
                                 </td>
                                 <td class="item_category">
                                     {{ $book->category->name }}
@@ -106,10 +106,10 @@
                                 </td>
                                 @if (Auth::id() == $book->user->id)
                                     <td class="item_edit">
-                                        <a href="{{ route('book.edit', ['id' => $book->id]) }}" class="btn btn-primary">編集</a>
+                                        <a href="{{ route('books.edit', ['id' => $book->id]) }}" class="btn btn-primary">編集</a>
                                     </td>
                                     <td class="item_delete">
-                                        <form method="POST" action="{{ route('book.destroy', ['id' => $book->id]) }}">
+                                        <form method="POST" action="{{ route('books.destroy', ['id' => $book->id]) }}">
                                             @csrf
                                             <button type="button" class="btn btn-danger js-delete">削除</button>
                                         </form>

@@ -13,7 +13,7 @@
                     </div>
                     @endif
                     <h4>ユーザー情報</h4>
-                    <form method="POST" action="{{ route('profile.update', ['id' => $user->id]) }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('user.update', ['id' => $user->id]) }}" enctype="multipart/form-data">
                         @csrf
                         <table class="table">
                             <tr>
@@ -38,7 +38,7 @@
                             </tr>
                         </table>
                         <div class="form-buttons text-center">
-                            <a href="{{ route('profile.show', ['id' => $user->id]) }}" class="btn btn-secondary" style="margin-right: 20px">戻る</a>
+                            <a href="{{ route('user.show', ['id' => $user->id]) }}" class="btn btn-secondary" style="margin-right: 20px">戻る</a>
                             <button type="submit" class="btn btn-primary">更新する</button>
                         </div>
                     </form>

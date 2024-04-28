@@ -366,24 +366,22 @@ i {
 
 // 書籍詳細情報 表示
 #books_show {
-    i {
-        padding-right: 15px;
-        display: inline-block;
-        width: 20px;
+    .card-body{
+        i {
+            padding-right: 15px;
+            display: inline-block;
+            width: 20px;
+        }
+        .book-details h4 {
+            font-weight: bold;
+            margin: 0 0 20px 0;
+        }
+    
+        .table th {
+            width: 200px;
+        }
     }
 
-    .book-details h4 {
-        font-weight: bold;
-        margin: 0 0 20px 0;
-    }
-
-    .thumbnail {
-        margin: 20px 0;
-    }
-
-    .table th {
-        width: 200px;
-    }
 }
 
 // 書籍詳細情報 編集

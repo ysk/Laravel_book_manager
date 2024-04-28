@@ -19,7 +19,7 @@
                     <!-- コンテンツ -->
                     <div class="book-details">
                         <h4>技術書の情報を入力してください</h4>
-                        <form method="POST" action="{{ route('book.store') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('books.store') }}" enctype="multipart/form-data">
                             @csrf
                             <table class="table">
                                 <tr>

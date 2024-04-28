@@ -18,7 +18,7 @@
                     <!-- コンテンツ -->
                     <div class="book-details">
                         <h4>{{ $book->item_name }}</h4>
-                        <form method="POST" enctype="multipart/form-data" action="{{ route('book.update', ['id' => $book->id]) }}">
+                        <form method="POST" enctype="multipart/form-data" action="{{ route('books.update', ['id' => $book->id]) }}">
                             @csrf
                             <div class="thumbnail">
                                 @if($book->item_thumbnail)

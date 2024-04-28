@@ -26,23 +26,23 @@ Auth::routes();
 
 // 公開ページ
 Route::get('/', [BooksController::class, 'index'])->name('books.index');
-Route::get('/books/show/{id}', [BooksController::class, 'show'])->name('book.show');
+Route::get('/books/show/{id}', [BooksController::class, 'show'])->name('books.show');
 Route::get('/books/search', [SearchController::class, 'searchQuery'])->name('search.result');
 
 Route::middleware('auth')->group(function () {
     // 本棚管gi理
     Route::prefix('books')->group(function () {        
-        Route::get('/create', [BooksController::class, 'create'])->name('book.create');
-        Route::post('/store', [BooksController::class, 'store'])->name('book.store');
-        Route::get('/edit/{id}', [BooksController::class, 'edit'])->name('book.edit');
-        Route::post('/update/{id}', [BooksController::class, 'update'])->name('book.update');
-        Route::post('/destroy/{id}', [BooksController::class, 'destroy'])->name('book.destroy');
+        Route::get('/create', [BooksController::class, 'create'])->name('books.create');
+        Route::post('/store', [BooksController::class, 'store'])->name('books.store');
+        Route::get('/edit/{id}', [BooksController::class, 'edit'])->name('books.edit');
+        Route::post('/update/{id}', [BooksController::class, 'update'])->name('books.update');
+        Route::post('/destroy/{id}', [BooksController::class, 'destroy'])->name('books.destroy');
     });
     // ユーザー管理
     Route::prefix('user')->group(function () {
-        Route::get('/show/{id}', [UserprofController::class, 'show'])->name('profile.show');
-        Route::get('/edit/{id}', [UserprofController::class, 'edit'])->name('profile.edit');
-        Route::post('/update/{id}', [UserprofController::class, 'update'])->name('profile.update');
+        Route::get('/show/{id}', [UserprofController::class, 'show'])->name('user.show');
+        Route::get('/edit/{id}', [UserprofController::class, 'edit'])->name('user.edit');
+        Route::post('/update/{id}', [UserprofController::class, 'update'])->name('user.update');
     });
 });
 

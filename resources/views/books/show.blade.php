@@ -59,7 +59,7 @@
 
                         <div class="form-buttons text-center">
                             @if (Auth::id() == $book->user->id)
-                            <a href="{{ route('book.edit', ['id' => $book->id]) }}" class="btn btn-primary">編集</a>
+                            <a href="{{ route('books.edit', ['id' => $book->id]) }}" class="btn btn-primary">編集</a>
                             @endif
                             <a href="{{ route('books.index') }}" class="btn btn-secondary" >TOPに戻る</a>
                         </div>

@@ -53,7 +53,7 @@ class UserprofController extends Controller
         $userProf->prof_thumbnail = $filename;
         $userProf->save();
     
-        return redirect()->route('profile.show', ['id' => $id])->with('message', '書籍を更新しました');
+        return redirect()->route('user.show', ['id' => $id])->with('message', '書籍を更新しました');
     }
     
     

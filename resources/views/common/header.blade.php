@@ -65,10 +65,10 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('profile.show', [ 'id' => Auth::user()->id ]) }}"><i class="fa-regular fa-user"></i>マイページ</a>
+                                    <a class="dropdown-item" href="{{ route('user.show', [ 'id' => Auth::user()->id ]) }}"><i class="fa-regular fa-user"></i>マイページ</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('book.create') }}"><i class="fa-regular fa-pen-to-square"></i>本を登録する</a>
+                                    <a class="dropdown-item" href="{{ route('books.create') }}"><i class="fa-regular fa-pen-to-square"></i>本を登録する</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa-solid fa-arrow-right-from-bracket"></i>ログアウト</a>
