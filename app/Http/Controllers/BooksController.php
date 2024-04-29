@@ -55,7 +55,7 @@ class BooksController extends Controller
         }
         $book->user_id        = Auth::id();
         $book->fill($request->validated());
-        $book->item_thumbnail = $filename;
+        $book->item_thumbnail = $filename; //要調査
         $book->save();
         return redirect()
             ->route('books.index')
@@ -99,9 +99,16 @@ class BooksController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(BookRequest $request, int $id)
-    {        
+    {    
+        $file = $request->file('item_thumbnail');
+        $filename = null;
+        if (!is_null($file)) {
+            $filePath = $file->store('public/uploads');
+            $filename = basename($filePath);
+        }    
         $book = Book::find($id);
         $book->fill($request->validated());
+        $book->item_thumbnail = $filename; //要調査
         $book->save();
         return redirect()
             ->route('books.show', ['id' => $book->id])

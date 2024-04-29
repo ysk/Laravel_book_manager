@@ -27,8 +27,13 @@
                                     <img src="{{ asset('images/no_image.png') }}" alt="No Image" class="img-thumbnail" style="width: 150px">
                                 @endif
                             </div>
-
                             <table class="table">
+                                <tr>
+                                    <th><i class="fa-regular fa-image"></i> 表紙画像</th>
+                                    <td>
+                                        <input type="file" name="item_thumbnail" value="" class="form-control">
+                                    </td>
+                                </tr>
                                 <tr>
                                     <th><i class="fa-solid fa-book"></i> 書籍名</th>
                                     <td>
@@ -36,7 +41,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th><i class="fa-solid fa-book"></i> カテゴリー</th>
+                                    <th><i class="fa-solid fa-table-columns"></i> カテゴリー</th>
                                     <td>
                                         <select name="category_id" class="form-select">
                                             @foreach($categories as $category)
@@ -46,9 +51,9 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th><i class="fa-solid fa-yen-sign"></i> 価格</th>
+                                    <th><i class="fa-solid fa-building"></i> 出版社</th>
                                     <td>
-                                        <input type="text" name="item_price" value="{{ old('item_price', $book->item_price) }}" class="form-control">
+                                        <input type="text" name="publisher_name" value="{{ old('publisher_name', $book->publisher_name) }}" class="form-control">
                                     </td>
                                 </tr>
                                 <tr>
@@ -58,13 +63,18 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <th><i class="fa-solid fa-yen-sign"></i> 価格</th>
+                                    <td>
+                                        <input type="text" name="item_price" value="{{ old('item_price', $book->item_price) }}" class="form-control">
+                                    </td>
+                                </tr>
+                                <tr>
                                     <th><i class="fa-regular fa-comment-dots"></i> 投稿者の書評</th>
                                     <td>
                                         <textarea name="item_review" class="form-control">{{ old('item_review', $book->item_review) }}</textarea>
                                     </td>
                                 </tr>
                             </table>
-
                             <div class="form-buttons text-center">
                                 <a href="{{ route('books.index') }}" class="btn btn-secondary" style="margin-right: 20px">TOPに戻る</a>
                                 <button type="submit" class="btn btn-primary">更新</button>

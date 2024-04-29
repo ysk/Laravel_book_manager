@@ -45,15 +45,21 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th><i class="fa-solid fa-yen-sign"></i> 価格</th>
+                                    <th><i class="fa-solid fa-building"></i> 出版社</th>
                                     <td>
-                                        <input type="text" name="item_price" value="{{ old('item_price') }}" class="form-control">
+                                        <input type="text" name="publisher_name" value="{{ old('publisher_name') }}" class="form-control">
                                     </td>
                                 </tr>
                                 <tr>
                                     <th><i class="fa-regular fa-calendar"></i> 出版日</th>
                                     <td>
                                         <input type="date" name="published_at" value="{{ old('published_at') }}" class="form-control">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><i class="fa-solid fa-yen-sign"></i> 価格</th>
+                                    <td>
+                                        <input type="text" name="item_price" value="{{ old('item_price') }}" class="form-control">
                                     </td>
                                 </tr>
                                 <tr>

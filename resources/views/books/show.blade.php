@@ -25,20 +25,21 @@
                             @endif
                         </div>
                         <table class="table">
+
                             <tr>
-                                <th><i class="fa-solid fa-user-pen"></i>投稿者</th>
-                                <td>{{ $book->user->name }}</td>
+                                <th><i class="fa-solid fa-building"></i> 出版社</th>
+                                <td>
+                                   {{ $book->publisher_name }}
+                                </td>
                             </tr>
                             <tr>
                                 <th><i class="fa-solid fa-book"></i>書籍名</th>
                                 <td>{{ $book->item_name }}</td>
                             </tr>
                             <tr>
-                                <th><i class="fa-solid fa-yen-sign"></i>価格</th>
+                                <th><i class="fa-solid fa-table-columns"></i>  カテゴリー</th>
                                 <td>
-                                    @if ($book->item_price != 0)
-                                    {{ number_format($book->item_price)}} 円
-                                    @endif
+                                   {{ $book->category->name }}
                                 </td>
                             </tr>
                             <tr>
@@ -48,15 +49,25 @@
                                 </td>
                             </tr>
                             <tr>
+                                <th><i class="fa-solid fa-yen-sign"></i>価格</th>
+                                <td>
+                                    @if ($book->item_price != 0)
+                                    {{ number_format($book->item_price)}} 円
+                                    @endif
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th><i class="fa-solid fa-user-pen"></i>投稿者</th>
+                                <td>{{ $book->user->name }}</td>
+                            </tr>
+                            <tr>
                                 <th><i class="fa-regular fa-comment-dots"></i>投稿者の書評</th>
                                 <td>
                                     {!! nl2br( $book->item_review) !!}
                                 </td>
                             </tr>
                         </table>
-
-
-
                         <div class="form-buttons text-center">
                             @if (Auth::id() == $book->user->id)
                             <a href="{{ route('books.edit', ['id' => $book->id]) }}" class="btn btn-primary">編集</a>

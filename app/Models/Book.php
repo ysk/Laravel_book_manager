@@ -18,14 +18,13 @@ class Book extends Model
     protected $fillable = [
         'user_id',
         'category_id',
+        'publisher_name',
         'item_thumbnail',
         'item_name',
-        'item_number',
-        'item_price',
         'item_review',
+        'item_price',
         'published_at'
     ];
-
 
     public function user(): BelongsTo
     {

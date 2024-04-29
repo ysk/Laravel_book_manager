@@ -152,6 +152,8 @@ return [
         'item_price'    => '金額',
         'published_at'   => '公開日',
         'item_review'    => '書評',
+        'publisher_name'    => '出版社',
+    
 
         //お問い合わせフォーム
         'name'    => 'お名前',
