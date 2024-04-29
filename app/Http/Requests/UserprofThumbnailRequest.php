@@ -4,12 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-/**
- * Class UserprofRequest
- *
- * @package App\Http\Requests
- */
-class UserprofRequest extends FormRequest
+class UserprofThumbnailRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,13 +24,9 @@ class UserprofRequest extends FormRequest
     public function rules(): array
     {
         $rules =  [
-            'address'        => 'nullable|string',
-            'phone'          => 'nullable|string',
-            'github_url'     => 'nullable|string',
-            'prof_text'      => 'nullable|string',
+            'prof_thumbnail' => 'nullable|image|mimes:png,jpg,gif|max:7168', 
         ];
 
         return $rules;
     }
 }
-

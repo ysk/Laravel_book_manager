@@ -59,8 +59,12 @@ Route::middleware('auth')->group(function () {
     });
     // ユーザー管理
     Route::prefix('user')->group(function () {
+        //編集
         Route::get('/edit/{id}', [UserprofController::class, 'edit'])->name('user.edit');
         Route::post('/update/{id}', [UserprofController::class, 'update'])->name('user.update');
+        //編集 サムネイル
+        Route::get('/edit_thumbnail/{id}', [UserprofController::class, 'edit_thumbnail'])->name('user.edit_thumbnail');
+        Route::post('/update_thumbnail/{id}', [UserprofController::class, 'update_thumbnail'])->name('user.update_thumbnail');
         Route::delete('/destroy/{id}', [UserprofController::class, 'destroy'])->name('user.destroy');
         //パスワード変更
         Route::get('/change_pass', [UserprofController::class, 'change_pass'])->name('user.change_pass');

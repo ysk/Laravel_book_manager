@@ -31,7 +31,7 @@
                                 <tr>
                                     <th><i class="fa-solid fa-book"></i> 書籍名</th>
                                     <td>
-                                        <input type="text" name="item_name" value="{{ old('item_name') }}" class="form-control">
+                                        <input type="text" name="item_name" value="{{ old('item_name') }}" class="form-control" required>
                                     </td>
                                 </tr>
                                 <tr>

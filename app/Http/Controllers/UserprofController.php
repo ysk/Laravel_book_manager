@@ -2,9 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\{Auth, Mail, Hash};
-use App\Http\Requests\{UserRequest, UserprofRequest, ChangePassword};
-use App\Models\{Book, Category, User, Userprof};
+use Illuminate\Support\Facades\{
+    Auth,
+    Mail,
+    Hash
+};
+use App\Http\Requests\{
+    UserRequest,
+    UserprofRequest,
+    UserprofThumbnailRequest,
+    ChangePassword
+};
+use App\Models\{
+    Book,
+    Category,
+    User,
+    Userprof
+};
 
 class UserprofController extends Controller
 {
@@ -127,5 +141,28 @@ class UserprofController extends Controller
         return redirect()->route('user.show');
     }
 
+
+    public function edit_thumbnail(int $id){
+        $user = User::find($id);
+        return view('users.edit_thumbnail', [
+            'user'    => $user,
+            'body_id' => 'edit_thumbnail'
+        ]); 
+    }
+
+    public function update_thumbnail(UserprofThumbnailRequest $request, int $id)
+    {    
+        $file = $request->file('item_thumbnail');
+        $filename = null;
+        if (!is_null($file)) {
+            $filePath = $file->store('public/uploads');
+            $filename = basename($filePath);
+        }
+        $book->item_thumbnail = $filename;
+        $book->save();
+        return redirect()
+            ->route('books.show', ['id' => $book->id])
+            ->with('message', 'プロフィール画像を更新しました');
+    }
 
 }

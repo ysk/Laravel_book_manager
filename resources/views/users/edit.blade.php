@@ -13,13 +13,9 @@
                     </div>
                     @endif
                     <h4>ユーザー情報</h4>
-                    <form method="POST" action="{{ route('user.update', ['id' => $user->id]) }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('user.update', ['id' => $user->id]) }}">
                         @csrf
                         <table class="table">
-                            <tr>
-                                <th>アイコン</th>
-                                <td><input type="file" name="prof_thumbnail" class="form-control"></td>
-                            </tr>
                             <tr>
                                 <th>住所</th>
                                 <td><input type="text" name="address" value="{{ old('address', $user->userprof->address ?? null) }}" class="form-control"></td>
