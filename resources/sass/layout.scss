@@ -291,6 +291,10 @@ i {
         }
 
     }
+
+    hr {
+        margin: 40px 0;
+    }
 }
 
 
@@ -455,6 +459,38 @@ i {
             box-sizing: border-box;
         }
     }
+
+
+    // #user_show {
+    //     .table{
+    //         display: flex;
+            
+    //     }
+    //     .table thead th{
+    //         display: list-item;
+    //         list-style: none;
+    //     }
+    //     .table thead,
+    //     .table .tbody {
+    //         display: table-cell;
+    //     }
+    //     .table td {
+    //         display: list-item;
+    //         list-style: none;
+    //         width: 100% !important;
+    //         box-sizing: border-box;
+    //     }
+
+    //     section.book_list .item_edit, 
+    //     section.book_list .item_delete{
+    //         border-color: #fff;
+    //         display: flex;
+    //     }
+    //     section {
+    //         margin-bottom: 40px;
+    //     }
+    // }
+
 }
 
 //////////////////////////////////////

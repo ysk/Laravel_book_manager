@@ -39,3 +39,4 @@ class UserprofRequest extends FormRequest
         return $rules;
     }
 }
+

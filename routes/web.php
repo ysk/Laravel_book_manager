@@ -43,6 +43,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/show/{id}', [UserprofController::class, 'show'])->name('user.show');
         Route::get('/edit/{id}', [UserprofController::class, 'edit'])->name('user.edit');
         Route::post('/update/{id}', [UserprofController::class, 'update'])->name('user.update');
+        Route::delete('/destroy/{id}', [UserprofController::class, 'destroy'])->name('user.destroy');
+
+        //パスワード変更
+        Route::get('/change_pass', [UserprofController::class, 'change_pass'])->name('user.change_pass');
+        Route::post('/update_pass', [UserprofController::class, 'update_pass'])->name('user.update_pass');
+
     });
 });
 
