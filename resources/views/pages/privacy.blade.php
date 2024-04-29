@@ -75,7 +75,13 @@
                             <p>初出掲載：2024年5月6日</p>
                         </section>
                     </div>
+
+                    <div class="form-buttons text-center">
+                        <a href="{{ route('books.index') }}" class="btn btn-secondary mt-3" style="margin-right: 20px">戻る</a>
+                        <a href="{{ route('contact.show') }}" class="btn btn-primary mt-3">お問い合わせはこちら</a>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
