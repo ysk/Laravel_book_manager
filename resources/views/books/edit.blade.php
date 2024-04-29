@@ -18,22 +18,9 @@
                     <!-- コンテンツ -->
                     <div class="book-details">
                         <h4>{{ $book->item_name }}</h4>
-                        <form method="POST" enctype="multipart/form-data" action="{{ route('books.update', ['id' => $book->id]) }}">
+                        <form method="POST" action="{{ route('books.update', ['id' => $book->id]) }}">
                             @csrf
-                            <div class="thumbnail">
-                                @if($book->item_thumbnail)
-                                    <img src="{{ asset('storage/uploads/' . $book->item_thumbnail) }}" alt="{{ $book->item_name }}" class="img-thumbnail" style="width: 150px">
-                                @else
-                                    <img src="{{ asset('images/no_image.png') }}" alt="No Image" class="img-thumbnail" style="width: 150px">
-                                @endif
-                            </div>
                             <table class="table">
-                                <tr>
-                                    <th><i class="fa-regular fa-image"></i> 表紙画像</th>
-                                    <td>
-                                        <input type="file" name="item_thumbnail" value="" class="form-control">
-                                    </td>
-                                </tr>
                                 <tr>
                                     <th><i class="fa-solid fa-book"></i> 書籍名</th>
                                     <td>
@@ -76,7 +63,7 @@
                                 </tr>
                             </table>
                             <div class="form-buttons text-center">
-                                <a href="{{ route('books.index') }}" class="btn btn-secondary" style="margin-right: 20px">TOPに戻る</a>
+                                <a href="{{ route('books.show', ['id' => $book->id]) }}" class="btn btn-secondary" style="margin-right: 20px">戻る</a>
                                 <button type="submit" class="btn btn-primary">更新</button>
                             </div>
                             <input type="hidden" name="user_id" value="{{ $book->user_id }}">

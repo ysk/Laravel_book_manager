@@ -7,6 +7,9 @@
 <title>Tech Cache β - みんなの技術書の本棚共有サイト</title>
 <meta name="description" content="Tech Cache βはみんなの技術書の本棚共有サイトです">
 <meta name="keywords" content="技術書, 本棚, 本棚共有,レビュー">
+<link rel="icon" sizes="32x32" href="/favicon.ico" />
+<link rel="icon" sizes="16x16" type="image/png" href="/favicon.png">
+<title>Sample</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">

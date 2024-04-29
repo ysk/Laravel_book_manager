@@ -4,10 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\BookRequest;
 use App\Jobs\SendTestMailJob;
-use App\Models\{Book,Category,User,Userprof};
 use Carbon\Carbon;
+use App\Http\Requests\{
+    BookRequest,
+    BookThumbnailRequest
+};
+use App\Models\{
+    Book,
+    Category,
+    User,
+    Userprof
+};
+
 
 class BooksController extends Controller
 {
@@ -37,6 +46,9 @@ class BooksController extends Controller
             'body_id' => 'books_create'
         ]);
     }
+
+    
+    
 
     /**
      * 新しい書籍を保存する。
@@ -100,15 +112,8 @@ class BooksController extends Controller
      */
     public function update(BookRequest $request, int $id)
     {    
-        $file = $request->file('item_thumbnail');
-        $filename = null;
-        if (!is_null($file)) {
-            $filePath = $file->store('public/uploads');
-            $filename = basename($filePath);
-        }    
         $book = Book::find($id);
         $book->fill($request->validated());
-        $book->item_thumbnail = $filename; //要調査
         $book->save();
         return redirect()
             ->route('books.show', ['id' => $book->id])
@@ -131,7 +136,32 @@ class BooksController extends Controller
             ->with('message', '書籍を削除しました');
     }
 
+    public function edit_thumbnail(int $id){
+        return view('books.edit_thumbnail', [
+            'book'    => Book::find($id),
+            'body_id' => 'edit_thumbnail'
+        ]); 
+    }
+
+    public function update_thumbnail(BookThumbnailRequest $request, int $id)
+    {    
+        $file = $request->file('item_thumbnail');
+        $filename = null;
+        if (!is_null($file)) {
+            $filePath = $file->store('public/uploads');
+            $filename = basename($filePath);
+        }    
+        $book = Book::find($id);
+        $book->item_thumbnail = $filename; //要調査
+        $book->save();
+        return redirect()
+            ->route('books.show', ['id' => $book->id])
+            ->with('message', '表紙画像を更新しました');
+    }
+
 }
+
+
 
 
 

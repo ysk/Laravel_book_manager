@@ -17,6 +17,7 @@
                     <!-- コンテンツ -->
                     <div class="book-details">
                         <h4>{{ $book->item_name }}</h4>
+                        <div class="thumbnail_area">
                         <div class="thumbnail">
                             @if($book->item_thumbnail)
                                 <img src="{{ asset('storage/uploads/' . $book->item_thumbnail) }}" alt="{{ $book->item_name }}" class="img-thumbnail" style="width: 150px">
@@ -24,6 +25,9 @@
                                 <img src="{{ asset('images/no_image.png') }}" alt="No Image" class="img-thumbnail" style="width: 150px">
                             @endif
                         </div>
+                        <a href="{{ route('books.edit_thumbnail', ['id' => $book->id]) }}">サムネイル画像を更新</a>
+                        </div>
+
                         <table class="table">
 
                             <tr>
@@ -70,7 +74,7 @@
                         </table>
                         <div class="form-buttons text-center">
                             @if (Auth::id() == $book->user->id)
-                            <a href="{{ route('books.edit', ['id' => $book->id]) }}" class="btn btn-primary">編集</a>
+                            <a href="{{ route('books.edit', ['id' => $book->id]) }}" class="btn btn-primary">書籍情報の編集</a>
                             @endif
                             <a href="{{ route('books.index') }}" class="btn btn-secondary" >TOPに戻る</a>
                         </div>
