@@ -6,7 +6,6 @@
         <div class="col-md-11">
             <div class="card">
                 <div class="card-header"><i class="fa-solid fa-book"></i>書籍情報詳細</div>
-
                 <div class="card-body">
                     @if (session('message'))
                         <div class="alert alert-success">
@@ -18,18 +17,18 @@
                     <div class="book-details">
                         <h4>{{ $book->item_name }}</h4>
                         <div class="thumbnail_area">
-                        <div class="thumbnail">
-                            @if($book->item_thumbnail)
-                                <img src="{{ asset('storage/uploads/' . $book->item_thumbnail) }}" alt="{{ $book->item_name }}" class="img-thumbnail" style="width: 150px">
-                            @else
-                                <img src="{{ asset('images/no_image.png') }}" alt="No Image" class="img-thumbnail" style="width: 150px">
+                            <div class="thumbnail">
+                                @if($book->item_thumbnail)
+                                    <img src="{{ asset('storage/uploads/' . $book->item_thumbnail) }}" alt="{{ $book->item_name }}" class="img-thumbnail" style="width: 150px">
+                                @else
+                                    <img src="{{ asset('images/no_image.png') }}" alt="No Image" class="img-thumbnail" style="width: 150px">
+                                @endif
+                            </div>
+                            @if (Auth::id() == $book->user->id)
+                                <a href="{{ route('books.edit_thumbnail', ['id' => $book->id]) }}">サムネイル画像を更新</a>
                             @endif
                         </div>
-                        <a href="{{ route('books.edit_thumbnail', ['id' => $book->id]) }}">サムネイル画像を更新</a>
-                        </div>
-
                         <table class="table">
-
                             <tr>
                                 <th><i class="fa-solid fa-building"></i> 出版社</th>
                                 <td>
@@ -60,7 +59,6 @@
                                     @endif
                                 </td>
                             </tr>
-
                             <tr>
                                 <th><i class="fa-solid fa-user-pen"></i>投稿者</th>
                                 <td>{{ $book->user->name }}</td>
