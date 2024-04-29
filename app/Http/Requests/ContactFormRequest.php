@@ -32,6 +32,7 @@ class ContactFormRequest extends FormRequest
             'name'    => 'required|string|max:100',
             'email'   => 'required|email|max:254',
         ];
+        return $rules;
 
     }
 }
