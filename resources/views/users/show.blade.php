@@ -59,7 +59,7 @@
                             <tr>
                                 <th>自己紹介</th>
                                 <td>
-                                    {!! $user->userprof->prof_text ?? '未設定' !!}
+                                    {!! nl2br($user->userprof->prof_text) ?? '未設定' !!}
                                 </td>
                             </tr>
                         </table>
