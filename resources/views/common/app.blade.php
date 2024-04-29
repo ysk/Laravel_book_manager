@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
 <link href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" rel="stylesheet">
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8682010241920340" crossorigin="anonymous"></script>
 @vite([
     'resources/sass/app.scss',
     'resources/js/app.js'
