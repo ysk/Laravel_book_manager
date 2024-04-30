@@ -34,8 +34,9 @@ class UserprofController extends Controller
         $books = Book::where('user_id', $id)
                      ->orderBy('created_at', 'desc')
                      ->paginate(15);
-                     
+        $totalPrice = Book::sum('item_price');        
         return view('users.show', [
+            'totalPrice' => $totalPrice,
             'user' => $user,
             'books' => $books,
             'body_id' => 'user_show',

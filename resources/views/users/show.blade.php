@@ -24,7 +24,7 @@
 
                     <!-- コンテンツ -->
                     <section class="user_info">
-                        <h4>ユーザー情報</h4>
+                        <h4 class="section_title">ユーザー情報</h4>
                         <table class="table">
                             <tr>
                                 <th></th>
@@ -73,8 +73,14 @@
                         @endif
                     </section>
 
+                    <section class="total_price">
+                        <h4 class="section_title">登録した技術書の合計金額</h4>
+                        <p class="price">{{ number_format($totalPrice) }} <span>円</span></p>
+                        <p class="notice">※合計金額はすべて定価で購入した場合の金額です</p>
+                    </section>
+
                     <section class="book_list">
-                        <h4>登録した本の一覧</h4>
+                        <h4 class="section_title">登録した本の一覧</h4>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -130,14 +136,14 @@
 
                     @if (Auth::id() == $user->id)
                     <hr>
-                    <section>
-                        <h4>パスワード変更</h4>
+                    <section class="change_pass">
+                        <h4 class="section_title">パスワード変更</h4>
                         <div class="form-buttons">
                             <a href="{{ route('user.change_pass') }}" class="btn btn-primary">パスワードを変更する</a>
                         </div>
                     </section>
-                    <section>
-                        <h4>退会処理</h4>
+                    <section class="user_destroy">
+                        <h4 class="section_title">退会処理</h4>
                         <div class="form-buttons">
                             <form method="POST" action="{{ route('user.destroy', ['id' => $user->id]) }}">
                                 @csrf

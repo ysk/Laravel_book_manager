@@ -54,7 +54,7 @@ i {
     padding: 2px;
 }
 
-.thumbnail_area{}
+.thumbnail_area {}
 
 //////////////////////////////////////
 /// 共通パーツ
@@ -156,10 +156,12 @@ i {
             object-fit: cover;
         }
     }
+
     .nav-link.dropdown-toggle {
         display: flex;
         align-items: center;
     }
+
     .dropdown-menu {
         margin-top: 4px;
     }
@@ -252,6 +254,28 @@ i {
         margin-bottom: 40px;
     }
 
+    section.total_price {
+        text-align: center;
+        .price {
+            font-weight: bold;
+            font-size: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .price span {
+            font-size: 18px;
+
+        }
+
+        .notice {
+            font-size: 12px;
+            color: #ff0000;
+        }
+
+    }
+
+
     section.user_info {}
 
     section.book_list {
@@ -300,12 +324,12 @@ i {
 
 
 // ユーザー情報 編集
-#user_edit{
-    .table{
-        textarea{
+#user_edit {
+    .table {
+        textarea {
             height: 200px;
         }
-    }   
+    }
 }
 
 //////////////////////////////////////
@@ -363,25 +387,26 @@ i {
 }
 
 // 書籍詳細情報 登録
-#books_create{
-    textarea{
+#books_create {
+    textarea {
         height: 100px;
     }
 }
 
 // 書籍詳細情報 表示
 #books_show {
-    .card-body{
+    .card-body {
         i {
             padding-right: 15px;
             display: inline-block;
             width: 20px;
         }
+
         .book-details h4 {
             font-weight: bold;
             margin: 0 0 20px 0;
         }
-    
+
         .table th {
             width: 200px;
         }
@@ -465,7 +490,7 @@ i {
     // #user_show {
     //     .table{
     //         display: flex;
-            
+
     //     }
     //     .table thead th{
     //         display: list-item;
