@@ -67,7 +67,7 @@ class ContactController extends Controller
             return redirect()->route('contact.show')->with('error', 'お問い合わせフォームが見つかりませんでした。');
         }
 
-        Mail::to('admin@example.com')->send(new ContactFormMail($contactFormData));
+        Mail::to('techcache.info@gmail.com')->send(new ContactFormMail($contactFormData));
         Mail::to($contactFormData['email'])->send(new ContactFormMail($contactFormData));
         
         // 送信後にセッションを破棄

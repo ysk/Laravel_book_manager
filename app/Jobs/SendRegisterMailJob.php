@@ -9,6 +9,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendRegisterMail;
+use App\Models\User;
 
 class SendRegisterMailJob implements ShouldQueue
 {
@@ -17,9 +18,9 @@ class SendRegisterMailJob implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public function __construct()
+    public function __construct(User $user)
     {
-        //
+        $this->user = $user;
     }
 
     /**
@@ -27,6 +28,8 @@ class SendRegisterMailJob implements ShouldQueue
      */
     public function handle()
     {
+        $userEmail = $this->user->email;
         Mail::to('techcache.info@gmail.com')->send(new SendRegisterMail());
+        Mail::to($userEmail)->send(new SendRegisterMail());
     }
 }
