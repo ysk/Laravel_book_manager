@@ -28,7 +28,7 @@ class ChangePassword extends FormRequest
                 'required',
                 function ($attribute, $value, $fail) {
                     if (!\Hash::check($value, Auth::user()->password)) {
-                        $fail('The current password is incorrect.');
+                        $fail('現在のパスワードを正しく入力して下さい');
                     }
                 }
             ],

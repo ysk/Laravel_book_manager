@@ -144,7 +144,7 @@ class UserprofController extends Controller
         $request->session()->flash('message', 'パスワードが変更されました');
 
         return redirect()
-            ->route('user.show');
+            ->route('books.index');
     }
 
 
