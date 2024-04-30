@@ -18,7 +18,7 @@
                     <!-- コンテンツ -->
                     <div class="book-details">
                         <div class="mt-3 mb-3">
-                            <form method="POST" action="{{ route('user.update', ['id' => $user->id]) }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('user.update_thumbnail', ['id' => $user->id]) }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="thumbnail">
                                     @if(isset($user->userprof->prof_thumbnail))

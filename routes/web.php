@@ -43,7 +43,7 @@ Route::prefix('user')->group(function () {
 
 
 Route::middleware('auth')->group(function () {
-    // 本棚管gi理
+    // 本棚管理
     Route::prefix('books')->group(function () {        
         //登録
         Route::get('/create', [BooksController::class, 'create'])->name('books.create');

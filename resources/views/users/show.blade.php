@@ -37,7 +37,7 @@
                                         @endif
                                     </div>
                                     @if (Auth::id() == $user->id)
-                                    <a href="{{ route('user.edit_thumbnail', ['id' => $user->id]) }}">サムネイル画像の更新</a>
+                                        <a href="{{ route('user.edit_thumbnail', ['id' => $user->id]) }}">サムネイル画像の更新</a>
                                     @endif
                                 </td>
                             </tr>

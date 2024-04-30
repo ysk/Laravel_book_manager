@@ -23,6 +23,7 @@ class BookRequest extends FormRequest
         $rules =  [
             'user_id'        => 'integer',
             'category_id'    => 'required|integer',
+            'publisher_name' => 'nullable|string',
             'item_thumbnail' => 'nullable|image|mimes:png,jpg,gif|max:7168', 
             'item_name'      => 'required|string',
             'item_review'    => 'nullable|string',
