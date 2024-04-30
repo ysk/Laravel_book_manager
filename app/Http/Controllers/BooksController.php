@@ -99,6 +99,8 @@ class BooksController extends Controller
      */
     public function edit(int $id)
     {
+        $book = Book::find($id);
+        $session_id = session()->put('category_id', $book->category_id);    
         return view('books.edit', [
             'book'    => Book::find($id),
             'body_id' => 'books_edit'

@@ -39,7 +39,7 @@
                                     <td>
                                         <select name="category_id" class="form-select">
                                             @foreach($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            <option value="{{ $category->id }}" {{ old('category_id') }}>{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                     </td>
