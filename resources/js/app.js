@@ -6,6 +6,10 @@
 
 import './bootstrap';
 import './common';
+import './flatpickr';
+
+
+
 // import { createApp } from 'vue';
 
 

@@ -7,5 +7,9 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+// flatpickr
+@import "../../node_modules/flatpickr/dist/themes/airbnb.css";
+@import "../../node_modules/flatpickr/dist/plugins/monthSelect/style.css";
+
 // layout
 @import 'layout';

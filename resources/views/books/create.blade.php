@@ -53,7 +53,7 @@
                                 <tr>
                                     <th><i class="fa-regular fa-calendar"></i> 出版日</th>
                                     <td>
-                                        <input type="date" name="published_at" value="{{ old('published_at') }}" class="form-control">
+                                        <input type="text" name="published_at" value="{{ old('published_at') }}" class="form-control" id="js-datepicker">
                                     </td>
                                 </tr>
                                 <tr>
