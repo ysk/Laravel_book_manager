@@ -3,8 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\{Auth,Hash};
 
 class ChangePassword extends FormRequest
 {
@@ -26,10 +26,17 @@ class ChangePassword extends FormRequest
         return [
             'old_password' => [
                 'required',
-                function ($attribute, $value, $fail) {
-                    if (!\Hash::check($value, Auth::user()->password)) {
-                        $fail('現在のパスワードを正しく入力して下さい');
+                function ($attribute, $inputPassword, $fail) {
+                    $user = Auth::user();
+                    $hashedPasswordInDatabase = $user->password;
+                    
+                    // DB内にハッシュ化されて保存されている文字列とパスワードを比較する
+                    $is_PasswordCorrect = Hash::check($inputPassword, $hashedPasswordInDatabase);
+
+                    if (!$is_PasswordCorrect) {
+                        $fail('現在のパスワードを正しく入力してください');
                     }
+
                 }
             ],
             'password' => 'required|string|min:8|confirmed',
