@@ -621,6 +621,7 @@ i {
             }
         }
     }
+    // 書籍詳細情報 一覧 SP
     #books_index {
         .table {
             th {
@@ -647,6 +648,28 @@ i {
         }
     }
 
+    // 書籍詳細情報 表示 SP
+    #books_show {
+        .card-body {
+            i {
+                padding-right: 20px;
+                display: inline-block;
+                width: 20px;
+            }
+
+            .book-details h4 {
+                margin: 0 0 20px 0;
+            }
+
+            .table th {
+                width: 130px;
+                font-weight: normal;
+                color: #4C4C4C;
+                font-size: 12px;
+            }
+        }
+
+}
 
     #search_results {
         .search-results{
