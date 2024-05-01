@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\{
     Auth,
     Mail,
-    Hash
+    Hash,
+    DB
 };
 use App\Http\Requests\{
     UserRequest,
@@ -31,17 +32,32 @@ class UserprofController extends Controller
     public function show(int $id)
     {
         $user = User::find($id);
-        $books = Book::where('user_id', $id)
-                     ->orderBy('created_at', 'desc')
-                     ->paginate(15);
-        $totalPrice = Book::sum('item_price');        
+
+        // 基本クエリ全件取得
+        $booksQuery = Book::where('user_id', $id)
+                          ->orderBy('created_at', 'desc');
+        // 15件ずつ取得
+        $books = $booksQuery->paginate(15);
+        
+        // 本の合計金額
+        $totalPrice = $booksQuery->sum('item_price');
+
+        // よく購入する出版社上位5件
+        $publisherResults = $booksQuery->select('publisher_name', DB::raw('SUM(item_price) AS SUM'), DB::raw('COUNT(publisher_name) AS COUNT'))
+                                         ->groupBy('publisher_name')
+                                         ->orderByDesc('SUM')
+                                         ->limit(5)
+                                         ->get();
+    
         return view('users.show', [
             'totalPrice' => $totalPrice,
             'user' => $user,
             'books' => $books,
+            'publisherResults' => $publisherResults,
             'body_id' => 'user_show',
         ]);
     }
+    
 
 
     /**

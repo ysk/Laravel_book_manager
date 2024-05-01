@@ -74,14 +74,17 @@
                                 <a href="{{ route('user.edit', ['id' => $user->id]) }}" class="btn btn-primary">プロフィールの編集</a>
                             </div>
                         @endif
-
                     </section>
 
                     <section class="total_price">
                         <h4 class="section_title">登録した技術書の合計金額</h4>
                         <p class="price">{{ number_format($totalPrice) }} <span>円</span></p>
                         <p class="notice">※合計金額はすべて定価で購入した場合の金額です</p>
-                    </section>
+                        <h4 class="section_title">よく購入する出版社</h4>
+                        @foreach ($publisherResults as $result)
+                            {{ $result->publisher_name }} {{ $result->COUNT }} 冊<br>
+                        @endforeach
+                    </section> 
 
                     <section class="book_list">
                         <h4 class="section_title">登録した本の一覧</h4>
