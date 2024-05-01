@@ -32,9 +32,9 @@
                                 <td>
                                     <div class="thumbnail">
                                         @if(isset($user->userprof->prof_thumbnail))
-                                            <img src="{{ asset('storage/uploads/' . $user->userprof->prof_thumbnail) }}" alt="{{ $user->name }}" class="img-thumbnail" style="width: 150px">
+                                            <img src="{{ asset('storage/uploads/' . $user->userprof->prof_thumbnail) }}" alt="{{ $user->name }}" class="img-thumbnail">
                                         @else
-                                            <img src="{{ asset('images/no_image.png') }}" alt="No Image" class="img-thumbnail" style="width: 150px">
+                                            <img src="{{ asset('images/no_image.png') }}" alt="No Image" class="img-thumbnail">
                                         @endif
                                     </div>
                                     @if (Auth::id() == $user->id)

@@ -165,7 +165,6 @@ i {
             margin-top: 4px;
         }
     }
-
 }
 
 // フッター
@@ -239,10 +238,23 @@ i {
             td {
                 .thumbnail {
                     width: 100px;
-
+                    height: 100px;
+                    overflow: hidden;
+                    position: relative;
+                    border-radius: 50px;
+                    border: solid 1px #E7E9E9;
+                    margin-bottom: 5px;
                     img {
                         width: 100%;
-                        border-radius: 50px;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        -webkit-transform: translate(-50%, -50%);
+                        -ms-transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
+                        width: 100%;
+                        height: auto;
+                        display:block;
                     }
                 }
 
@@ -331,7 +343,19 @@ i {
         }
 
     }
+    section.change_pass {
+        h4{
+            font-size: 14px;
+        }
 
+    }
+    section.user_destroy {
+        h4{
+            font-size: 14px;
+        }
+
+    }
+    
     hr {
         margin: 40px 0;
     }
@@ -620,7 +644,8 @@ i {
         .table {
             td {
                 .thumbnail {
-                    width: 100px;
+                    width: 150px;
+                    height: 150px;
 
                     img {
                         width: 100%;
@@ -631,6 +656,14 @@ i {
         }
 
         section {
+            &.user_info{
+                .table{
+                    th, td{
+                        border-bottom: dashed 1px #E7E9E9;
+                        padding: 3px 0;
+                    }
+                }
+            }
             &.total_price {
                 margin-bottom: 40px;
                 text-align: center;
@@ -658,14 +691,13 @@ i {
                 }
 
                 .tbody {
+
                     .td {
                         padding: 3px 0;
                         border-bottom: dashed 1px #E7E9E9;
-
                         p {
                             display: inline;
                         }
-
                         .th {
                             display: inline-block;
                             padding-right: 10px;
@@ -688,6 +720,15 @@ i {
 
                         &.item_name {
                             padding-top: 30px;
+                            p {
+                                display: table-cell;
+                            }
+
+                            .th {
+                                display: table-cell;
+                                padding-right: 10px;
+                                min-width: 120px;
+                            }
                         }
 
                         &.item_review {
@@ -737,7 +778,11 @@ i {
                             }
                         }
                     }
-
+                    .tr:first-child {
+                        td.item_name{
+                            padding-top: 10px;
+                        }
+                    }
                 }
             }
         }

@@ -13,14 +13,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
+                    <li class="nav-item nav-about">
                         <a class="nav-link" href="{{ route('pages.about') }}">Tech Cacheについて</a>
                     </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
+                    <li class="nav-item nav-search">
                         <form action="{{ route('search.result') }}" method="GET" class="d-flex">
                             <div class="input-group mr-2">
                                 <select name="category_id" class="form-select">
@@ -40,12 +40,12 @@
                     <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))
-                            <li class="nav-item">
+                            <li class="nav-item nav-login">
                                 <a class="btn btn-link text-white" href="{{ route('login') }}"><i class="fa-solid fa-arrow-right-to-bracket"></i>ログイン</a>
                             </li>
                         @endif
                         @if (Route::has('register'))
-                            <li class="nav-item register-btn">
+                            <li class="nav-item nav-register register-btn">
                                 <a class="btn btn-primary btn-register" href="{{ route('register') }}"><i class="fa-solid fa-square-arrow-up-right"></i>新規登録</a>
                             </li>
                         @endif
