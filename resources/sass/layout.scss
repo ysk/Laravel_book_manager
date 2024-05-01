@@ -96,75 +96,76 @@ i {
 
 // ヘッダー＆ナビゲーション
 .header {
+    box-shadow: 0px 3px 2px 0 #282828;
+
     a {
         text-decoration: none;
     }
 
-    .navbar-subtitle {
-        font-size: 12px;
-        margin-top: -10px;
-        letter-spacing: 1px;
-        color: #fff;
-    }
-
-    .navbar {
+    nav.navbar {
         padding: 5px;
-    }
+        background: #282828;
 
-    .navbar-subtitle {
-        margin-bottom: 0;
-    }
+        .navbar-subtitle {
+            font-size: 12px;
+            margin-top: -10px;
+            margin-bottom: 0;
+            letter-spacing: 1px;
+            color: #fff;
+        }
 
-    .register-btn {
-        margin-left: 10px;
-    }
+        .navbar-nav {
+            form {
+                position: relative;
+                top: 5px;
+                right: 5px;
+            }
+        }
 
-    .btn-register.btn-primary {
-        color: #fff;
-        padding: 5px 10px;
-        border-radius: 5px;
-        background: var(--primary-color);
-        border: solid 1px var(--primary-color);
+        .register-btn {
+            margin-left: 10px;
+        }
 
-        &:hover {
-            background: var(--primary-hover-color);
+        .btn-register.btn-primary {
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: var(--primary-color);
             border: solid 1px var(--primary-color);
+
+            &:hover {
+                background: var(--primary-hover-color);
+                border: solid 1px var(--primary-color);
+            }
         }
-    }
 
-    .navbar-nav {
-        form {
-            position: relative;
-            top: 5px;
-            right: 5px;
+        .nav-link.dropdown-toggle {
+            display: flex;
+            align-items: center;
         }
-    }
 
-    .thumbnail {
-        margin: 0;
-        padding: 0;
-        width: 30px;
-        height: 30px;
-        flex-shrink: 0;
-
-        .img-thumbnail {
+        .thumbnail {
+            margin: 0;
             padding: 0;
-            border: none;
-            border-radius: 50%;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 30px;
+            height: 30px;
+            flex-shrink: 0;
+
+            .img-thumbnail {
+                padding: 0;
+                border: none;
+                border-radius: 50%;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        ul.dropdown-menu {
+            margin-top: 4px;
         }
     }
 
-    .nav-link.dropdown-toggle {
-        display: flex;
-        align-items: center;
-    }
-
-    .dropdown-menu {
-        margin-top: 4px;
-    }
 }
 
 // フッター
@@ -173,6 +174,7 @@ i {
     position: absolute;
     bottom: 0;
     left: 0;
+    background: #E7E9E9;
 
     a {
         text-decoration: none;
@@ -225,37 +227,33 @@ i {
 
 //////////////////////////////////////
 // ユーザー情報
-#user_edit,
-#user_show {
-    .table th {
-        width: 130px;
-    }
 
-    section {
-        margin-bottom: 40px;
-    }
-}
 
 // ユーザー情報 表示
 #user_show {
-    .table td {
-        .thumbnail {
-            width: 100px;
 
-            img {
-                width: 100%;
-                border-radius: 50px;
+    section.user_info {
+        margin-bottom: 40px;
+
+        .table {
+            td {
+                .thumbnail {
+                    width: 100px;
+
+                    img {
+                        width: 100%;
+                        border-radius: 50px;
+                    }
+                }
+
             }
         }
-
-    }
-
-    section {
-        margin-bottom: 40px;
     }
 
     section.total_price {
+        margin-bottom: 40px;
         text-align: center;
+
         .price {
             font-weight: bold;
             font-size: 30px;
@@ -275,44 +273,61 @@ i {
 
     }
 
-
-    section.user_info {}
-
     section.book_list {
-        .item_id {
-            width: 30px;
-        }
+        margin-bottom: 40px;
 
-        .item_name {
-            width: 150px;
-        }
-
-        .item_category {
-            width: 150px;
-        }
-
-        .item_price {
-            width: 150px;
-        }
-
-        .item_published_at {
-            width: 150px;
-        }
-
-        .item_review {
-            width: auto;
-        }
-
-        .item_edit,
-        .item_delete {
-            width: 59px;
-            text-align: center;
-
-            a,
-            button {
-                padding: 4px 7px;
-                font-size: 11px;
+        .thead {
+            .item_id {
+                width: 30px;
             }
+
+            .item_name {
+                width: 150px;
+            }
+
+            .item_category {
+                width: 150px;
+            }
+
+            .item_price {
+                width: 150px;
+            }
+
+            .item_published_at {
+                width: 150px;
+            }
+
+            .item_review {
+                width: auto;
+            }
+
+            .item_edit {
+                width: 59px;
+            }
+
+            .item_delete {
+                width: 59px;
+            }
+        }
+
+        .tbody {
+            td {
+                .th {
+                    display: none;
+                }
+            }
+
+            .item_edit,
+            .item_delete {
+                text-align: center;
+
+                a,
+                button {
+                    padding: 4px 7px;
+                    font-size: 11px;
+                }
+            }
+
         }
 
     }
@@ -329,6 +344,19 @@ i {
         textarea {
             height: 200px;
         }
+    }
+}
+
+
+// ユーザー情報 表示/編集
+#user_edit,
+#user_show {
+    .table th {
+        width: 130px;
+    }
+
+    section {
+        margin-bottom: 40px;
     }
 }
 
@@ -466,60 +494,6 @@ i {
 }
 
 //////////////////////////////////////
-// スマートフォン用スタイル
-@media (max-width: 767px) {
-    #books_index {
-        .table tr>td:last-child {
-            margin-bottom: 20px;
-            border-bottom: none;
-        }
-
-        .table th {
-            display: none;
-        }
-
-        .table td {
-            display: block;
-            padding: 5px;
-            width: 100% !important;
-            box-sizing: border-box;
-        }
-    }
-
-
-    // #user_show {
-    //     .table{
-    //         display: flex;
-
-    //     }
-    //     .table thead th{
-    //         display: list-item;
-    //         list-style: none;
-    //     }
-    //     .table thead,
-    //     .table .tbody {
-    //         display: table-cell;
-    //     }
-    //     .table td {
-    //         display: list-item;
-    //         list-style: none;
-    //         width: 100% !important;
-    //         box-sizing: border-box;
-    //     }
-
-    //     section.book_list .item_edit, 
-    //     section.book_list .item_delete{
-    //         border-color: #fff;
-    //         display: flex;
-    //     }
-    //     section {
-    //         margin-bottom: 40px;
-    //     }
-    // }
-
-}
-
-//////////////////////////////////////
 /// 静的ページ
 // プライバシーポリシー
 #privacy {
@@ -575,4 +549,215 @@ i {
             list-style: inside;
         }
     }
+}
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+// スマートフォン用スタイル
+@media (max-width: 767px) {
+
+    //フッター SP
+    .footer {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: #E7E9E9;
+
+        a {
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .footer-list {
+            display: table;
+            margin: auto;
+            padding-left: 0;
+
+            &-item {
+                display: block;
+
+                &:not(:last-child)::after {
+                    content: "";
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    #books_index {
+        .table {
+            th {
+                display: none;
+            }
+            td {
+                display: block;
+                padding: 3px 0;
+                width: 100% !important;
+                box-sizing: border-box;
+                border-bottom: dashed 1px #E7E9E9;
+                font-size: 13px;
+                &:last-child{
+                    margin-bottom: 20px;
+                    border-bottom: none;
+                }
+                &.item_thumbnail{
+                    .thumbnail{
+                        width: 150px;
+                        padding:20px 0 7px;
+                    }
+                }
+            }
+        }
+    }
+
+    // ユーザー情報 表示 SP
+    #user_show {
+        .table {
+            td {
+                .thumbnail {
+                    width: 100px;
+
+                    img {
+                        width: 100%;
+                        border-radius: 50px;
+                    }
+                }
+            }
+        }
+
+        section {
+            &.total_price {
+                margin-bottom: 40px;
+                text-align: center;
+
+                .price {
+                    font-weight: bold;
+                    font-size: 30px;
+                    margin: 0;
+                    padding: 0;
+
+                    span {
+                        font-size: 18px;
+                    }
+                }
+
+                .notice {
+                    font-size: 12px;
+                    color: #ff0000;
+                }
+            }
+
+            &.book_list {
+                .thead {
+                    display: none;
+                }
+
+                .tbody {
+                    .td {
+                        padding: 3px 0;
+                        border-bottom: dashed 1px #E7E9E9;
+
+                        p {
+                            display: inline;
+                        }
+
+                        .th {
+                            display: inline-block;
+                            padding-right: 10px;
+                            width: 120px;
+
+                            i {
+                                min-width: 20px;
+                                text-align: center;
+                            }
+
+                            .text {
+                                color: #4C4C4C;
+                                font-size: 12px;
+                            }
+                        }
+
+                        width: 100%;
+                        display: block;
+                        box-sizing: border-box;
+
+                        &.item_name {
+                            padding-top: 30px;
+                        }
+
+                        &.item_review {
+                            display: table;
+
+                            p {
+                                display: table-cell;
+                            }
+
+                            .th {
+                                display: table-cell;
+                                padding-right: 10px;
+                                min-width: 120px;
+                            }
+                        }
+
+                        &.item_edit,
+                        &.item_delete {
+                            display: inline;
+                            padding: 0;
+                            border-bottom: none;
+
+                        }
+
+                        &.item_edit {
+                            margin-left: 75%;
+                            margin-right: 10px;
+
+                            a {
+                                margin-top: 10px;
+                                padding: 4px 7px;
+                                font-size: 11px;
+                            }
+                        }
+
+                        &.item_delete {
+                            padding-bottom: 30px;
+
+                            form {
+                                display: inline !important;
+
+                                button {
+                                    margin-top: 10px;
+                                    padding: 4px 7px;
+                                    font-size: 11px;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+
+
+        hr {
+            margin: 40px 0;
+        }
+
+
+    }
+
+    .pagination{
+        .flex {
+            display: block;
+            margin-bottom: 15px;
+        }
+        p{
+            margin-bottom: 5px;
+        }
+    }
+
 }

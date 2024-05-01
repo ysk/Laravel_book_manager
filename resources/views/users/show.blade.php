@@ -26,6 +26,7 @@
                     <section class="user_info">
                         <h4 class="section_title">ユーザー情報</h4>
                         <table class="table">
+                            <tbody>
                             <tr>
                                 <th></th>
                                 <td>
@@ -65,6 +66,7 @@
                                     {!! nl2br($user->userprof->prof_text) ?? '未設定' !!}
                                 </td>
                             </tr>
+                            </tbody>
                         </table>
                         @if (Auth::id() == $user->id)
                         <div class="form-buttons text-center">
@@ -82,7 +84,7 @@
                     <section class="book_list">
                         <h4 class="section_title">登録した本の一覧</h4>
                         <table class="table">
-                            <thead>
+                            <thead class="thead">
                                 <tr>
                                     <th class="item_name"><i class="fa-solid fa-book"></i>書籍名</th>
                                     <th class="item_category"><i class="fa-solid fa-table-columns"></i>カテゴリー</th>
@@ -93,29 +95,54 @@
                                     <th class="item_delete">&nbsp;</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="tbody">
                                 @foreach ($books as $book)
-                                <tr>
-                                    <td class="item_name">
-                                        <a href="{{ route('books.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a>
+                                <tr class="tr">
+                                    <td class="td item_name">
+                                        <div class="th">
+                                            <i class="fa-solid fa-book"></i><span class="text">書籍名</span>
+                                        </div>
+                                        <p>
+                                            <a href="{{ route('books.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a>
+                                        </p>
                                     </td>
-                                    <td class="item_category">
-                                        {{ $book->category->name }}
+                                    <td class="td item_category">
+                                        <div class="th">
+                                            <i class="fa-solid fa-table-columns"></i><span class="text">カテゴリー</span>
+                                        </div>
+                                        <p>
+                                            {{ $book->category->name }}
+                                        </p>
                                     </td>
-                                    <td class="item_price">
-                                        @if ($book->item_price != 0) {{ number_format($book->item_price)}} 円 @endif
+                                    <td class="td item_price">
+                                        <div class="th">
+                                            <i class="fa-solid fa-yen-sign"></i><span class="text">金額</span>
+                                        </div>
+                                        <p>
+                                            @if ($book->item_price != 0) {{ number_format($book->item_price)}} 円 @endif
+                                        </p>
                                     </td>
-                                    <td class="item_published_at">
-                                        {{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') }}
+                                    <td class="td item_published_at">
+                                        <div class="th">
+                                            <i class="fa-regular fa-calendar"></i><span class="text">出版日</span>
+                                        </div>
+                                        <p>
+                                            {{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') }}
+                                        </p>
                                     </td>
-                                    <td class="item_review">
-                                        {{ Str::limit($book->item_review, 100) }}
+                                    <td class="td item_review">
+                                        <div class="th">
+                                            <i class="fa-regular fa-comment-dots"></i><span class="text">投稿者の書評</span>
+                                        </div>
+                                        <p>
+                                            {{ Str::limit($book->item_review, 100) }}
+                                        </p>
                                     </td>
                                     @if (Auth::id() == $book->user->id)
-                                        <td class="item_edit">
+                                        <td class="td item_edit">
                                             <a href="{{ route('books.edit', ['id' => $book->id]) }}" class="btn btn-primary">編集</a>
                                         </td>
-                                        <td class="item_delete">
+                                        <td class="td item_delete">
                                             <form method="POST" action="{{ route('books.destroy', ['id' => $book->id]) }}">
                                                 @csrf
                                                 <button type="button" class="btn btn-danger js-delete">削除</button>
