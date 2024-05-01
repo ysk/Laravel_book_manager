@@ -45,7 +45,7 @@ class UserprofController extends Controller
         // よく購入する出版社上位5件
         $publisherResults = $booksQuery->select('publisher_name', DB::raw('SUM(item_price) AS SUM'), DB::raw('COUNT(publisher_name) AS COUNT'))
                                          ->groupBy('publisher_name')
-                                         ->orderBy('SUM', 'ASC')
+                                         ->orderBy('COUNT', 'DESC')
                                          ->limit(5)
                                          ->get();
     
