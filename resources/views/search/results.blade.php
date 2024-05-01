@@ -6,6 +6,7 @@
         <div class="col-md-11">
             <div class="card">
                 <div class="card-header"><i class="fa-regular fa-rectangle-list"></i>技術書一覧</div>
+                <div class="card-body">
                 @if($books->count() > 0)
                 <div class="search-results">
                     <p>{{$books->count()}} 件がヒットしました。</p>
@@ -40,10 +41,10 @@
                                 <a href="/books/search?category_id={{$book->category->id }}">{{$book->category->name }}</a>
                             </td>
                             <td class="item_published_at">
-                                {{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') }}
+                                {{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') ?? '未設定'  }}
                             </td>
                             <td class="item_review">
-                                {{ Str::limit($book->item_review, 200) }}
+                                {{ Str::limit($book->item_review, 200) ?? '未設定'  }}
                             </td>
                             <td class="item_user_id">
                                 {{ $book->user->name ?? null }}
@@ -60,7 +61,7 @@
                 </div>
                 @endif
                 <!-- // コンテンツ -->
-            </div>
+            </div>  </div>
         </div>
     </div>
 </div>

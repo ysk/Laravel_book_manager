@@ -583,6 +583,15 @@ i {
 ////////////////////////////////////////////////////////////////////////////
 // スマートフォン用スタイル
 @media (max-width: 767px) {
+    .header{
+        .nav-about{
+            .nav-link{
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+    }
 
     //フッター SP
     .footer {
@@ -612,8 +621,41 @@ i {
             }
         }
     }
-
     #books_index {
+        .table {
+            th {
+                display: none;
+            }
+            td {
+                display: block;
+                padding: 3px 0;
+                width: 100% !important;
+                box-sizing: border-box;
+                border-bottom: dashed 1px #E7E9E9;
+                font-size: 13px;
+                &:last-child{
+                    margin-bottom: 20px;
+                    border-bottom: none;
+                }
+                &.item_thumbnail{
+                    .thumbnail{
+                        width: 150px;
+                        padding:20px 0 7px;
+                    }
+                }
+            }
+        }
+    }
+
+
+    #search_results {
+        .search-results{
+            padding: 0;
+            p{
+                padding: 0;
+                margin-bottom: 0;
+            }
+        }
         .table {
             th {
                 display: none;

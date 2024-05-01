@@ -53,10 +53,10 @@
                                     <a href="/books/search?category_id={{$book->category->id }}">{{$book->category->name }}</a>
                                 </td>
                                 <td class="item_published_at">
-                                    {{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') }}
+                                    {{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') ?? '未設定'  }}
                                 </td>
                                 <td class="item_review">
-                                    {{ Str::limit($book->item_review, 200) }}
+                                    {{ Str::limit($book->item_review, 200) ?? '未設定'  }}
                                 </td>
                                 <td class="item_user_id">
                                     <a href="{{ route('user.show', ['id' =>$book->user->id]) }}">{{ $book->user->name }}</a>

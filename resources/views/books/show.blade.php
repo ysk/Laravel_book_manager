@@ -32,30 +32,30 @@
                             <tr>
                                 <th><i class="fa-solid fa-building"></i> 出版社</th>
                                 <td>
-                                   {{ $book->publisher_name }}
+                                   {{ $book->publisher_name ?? '未設定'  }}
                                 </td>
                             </tr>
                             <tr>
-                                <th><i class="fa-solid fa-book"></i>書籍名</th>
+                                <th><i class="fa-solid fa-book"></i> 書籍名</th>
                                 <td>{{ $book->item_name }}</td>
                             </tr>
                             <tr>
-                                <th><i class="fa-solid fa-table-columns"></i>  カテゴリー</th>
+                                <th><i class="fa-solid fa-table-columns"></i> カテゴリー</th>
                                 <td>
                                    {{ $book->category->name }}
                                 </td>
                             </tr>
                             <tr>
-                                <th><i class="fa-regular fa-calendar"></i>出版日</th>
+                                <th><i class="fa-regular fa-calendar"></i> 出版日</th>
                                 <td>
-                                    {{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') }}
+                                    {{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') ?? '未設定'  }}
                                 </td>
                             </tr>
                             <tr>
-                                <th><i class="fa-solid fa-yen-sign"></i>価格</th>
+                                <th><i class="fa-solid fa-yen-sign"></i> 価格</th>
                                 <td>
                                     @if ($book->item_price != 0)
-                                    {{ number_format($book->item_price)}} 円
+                                    {{ number_format($book->item_price) ?? '未設定' }} 円
                                     @endif
                                 </td>
                             </tr>

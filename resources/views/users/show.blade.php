@@ -68,11 +68,13 @@
                             </tr>
                             </tbody>
                         </table>
+
                         @if (Auth::id() == $user->id)
-                        <div class="form-buttons text-center">
-                            <a href="{{ route('user.edit', ['id' => $user->id]) }}" class="btn btn-primary">プロフィールの編集</a>
-                        </div>
+                            <div class="form-buttons text-center">
+                                <a href="{{ route('user.edit', ['id' => $user->id]) }}" class="btn btn-primary">プロフィールの編集</a>
+                            </div>
                         @endif
+
                     </section>
 
                     <section class="total_price">
@@ -127,7 +129,7 @@
                                             <i class="fa-regular fa-calendar"></i><span class="text">出版日</span>
                                         </div>
                                         <p>
-                                            {{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') }}
+                                            {{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') ?? '未設定'   }}
                                         </p>
                                     </td>
                                     <td class="td item_review">
@@ -135,7 +137,7 @@
                                             <i class="fa-regular fa-comment-dots"></i><span class="text">投稿者の書評</span>
                                         </div>
                                         <p>
-                                            {{ Str::limit($book->item_review, 100) }}
+                                            {{ Str::limit($book->item_review, 100) ?? '未設定'   }}
                                         </p>
                                     </td>
                                     @if (Auth::id() == $book->user->id)
