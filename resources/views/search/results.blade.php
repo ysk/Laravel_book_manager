@@ -23,9 +23,9 @@
                         </tr>
                     </thead>
                     <tbody class="tbody">
-                    @foreach ($books as $book)
-                        <tr>
-                            <td class="item_thumbnail">
+                        @foreach ($books as $book)
+                        <tr class="tr">
+                            <td class="td item_thumbnail">
                                 <div class="thumbnail">
                                     @if($book->item_thumbnail)
                                         <img src="{{ asset('storage/uploads/' . $book->item_thumbnail) }}" alt="{{ $book->item_name }}" class="img-thumbnail" style="width: 150px">
@@ -34,23 +34,49 @@
                                     @endif
                                 </div>
                             </td>
-                            <td class="item_name">
-                                <a href="{{ route('books.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a>
+                            <td class="td item_name">
+                                <div class="th">
+                                    <i class="fa-solid fa-book"></i><span class="text">書籍名</span>
+                                </div>
+                                <p>
+                                    <a href="{{ route('books.show', ['id' => $book->id]) }}">{{ $book->item_name }}</a>
+                                </p>
                             </td>
-                            <td class="item_category">
-                                <a href="/books/search?category_id={{$book->category->id }}">{{$book->category->name }}</a>
+                            <td class="td item_category">
+                                <div class="th">
+                                    <i class="fa-solid fa-table-columns"></i><span class="text">カテゴリー</span>
+                                </div>
+                                <p>
+                                    <a href="/books/search?category_id={{$book->category->id }}">{{$book->category->name }}</a>
+                                </p>
                             </td>
-                            <td class="item_published_at">
-                                {{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') ?? '未設定'  }}
+                            <td class="td item_published_at">
+                                <div class="th">
+                                    <i class="fa-regular fa-calendar"></i><span class="text">出版日</span>
+                                </div>
+                                <p>
+                                    {{ Carbon\Carbon::parse($book->published_at)->format('Y年m月d日') ?? '未設定'   }}
+                                </p>
                             </td>
-                            <td class="item_review">
-                                {{ Str::limit($book->item_review, 200) ?? '未設定'  }}
+                            <td class="td item_review">
+                                <div class="th">
+                                    <i class="fa-regular fa-comment-dots"></i><span class="text">投稿者の書評</span>
+                                </div>
+                                <p>
+                                    {{ Str::limit($book->item_review, 200) ?? '未設定'   }}
+                                </p>
                             </td>
-                            <td class="item_user_id">
-                                {{ $book->user->name ?? null }}
+                            <td class="td item_user_id">
+                                <div class="th">
+                                    <i class="fa-solid fa-user-pen"></i><span class="text">投稿者</span>
+                                </div>
+                                <p>
+                                    <a href="{{ route('user.show', ['id' =>$book->user->id]) }}">{{ $book->user->name }}</a>
+                                </p>
                             </td>
                         </tr>
-                    @endforeach
+                        @endforeach
+                    </tbody>
                 </table>
                 <div class="pagination justify-content-center mt-3">
                     {{ $books->links() }}

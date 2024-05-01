@@ -50,7 +50,7 @@
                             </li>
                         @endif
                     @else
-                        <li class="nav-item dropdown mt-2">
+                        <li class="nav-item dropdown nav-user">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     <div class="thumbnail me-2">

@@ -420,7 +420,11 @@ i {
     }
 
     .tbody {
-        .item_name {}
+        td {
+            .th {
+                display: none;
+            }
+        }
     }
 
     .card-body {
@@ -507,7 +511,11 @@ i {
     }
 
     .tbody {
-        .item_name {}
+        td {
+            .th {
+                display: none;
+            }
+        }
     }
 
     .search-results {
@@ -590,7 +598,9 @@ i {
                 padding: 0;
             }
         }
-
+        .nav-user{
+            padding-top: 7px;
+        }
     }
 
     //フッター SP
@@ -641,7 +651,100 @@ i {
                 &.item_thumbnail{
                     .thumbnail{
                         width: 150px;
-                        padding:20px 0 7px;
+                        padding:5px 0;
+                    }
+                }
+            }
+            .tbody {
+
+                .td {
+                    padding: 3px 0;
+                    border-bottom: dashed 1px #E7E9E9;
+                    p {
+                        display: inline;
+                    }
+                    .th {
+                        display: inline-block;
+                        padding-right: 10px;
+                        width: 120px;
+
+                        i {
+                            min-width: 20px;
+                            text-align: center;
+                        }
+
+                        .text {
+                            color: #4C4C4C;
+                            font-size: 12px;
+                        }
+                    }
+
+                    width: 100%;
+                    display: block;
+                    box-sizing: border-box;
+
+                    &.item_name {
+                        p {
+                            display: table-cell;
+                        }
+
+                        .th {
+                            display: table-cell;
+                            padding-right: 10px;
+                            min-width: 120px;
+                        }
+                    }
+
+                    &.item_review {
+                        display: table;
+
+                        p {
+                            display: table-cell;
+                        }
+
+                        .th {
+                            display: table-cell;
+                            padding-right: 10px;
+                            min-width: 120px;
+                        }
+                    }
+
+                    &.item_edit,
+                    &.item_delete {
+                        display: inline;
+                        padding: 0;
+                        border-bottom: none;
+
+                    }
+
+                    &.item_edit {
+                        margin-left: 75%;
+                        margin-right: 10px;
+
+                        a {
+                            margin-top: 10px;
+                            padding: 4px 7px;
+                            font-size: 11px;
+                        }
+                    }
+
+                    &.item_delete {
+                        padding-bottom: 30px;
+
+                        form {
+                            display: inline !important;
+
+                            button {
+                                margin-top: 10px;
+                                padding: 4px 7px;
+                                font-size: 11px;
+                            }
+                        }
+                    }
+                }
+                .tr:first-child {
+                    td.item_name{
+                        padding-top: 10px;
                     }
                 }
             }
@@ -680,6 +783,99 @@ i {
             }
         }
         .table {
+            .tbody {
+
+                .td {
+                    padding: 3px 0;
+                    border-bottom: dashed 1px #E7E9E9;
+                    p {
+                        display: inline;
+                    }
+                    .th {
+                        display: inline-block;
+                        padding-right: 10px;
+                        width: 120px;
+
+                        i {
+                            min-width: 20px;
+                            text-align: center;
+                        }
+
+                        .text {
+                            color: #4C4C4C;
+                            font-size: 12px;
+                        }
+                    }
+
+                    width: 100%;
+                    display: block;
+                    box-sizing: border-box;
+
+                    &.item_name {
+                        p {
+                            display: table-cell;
+                        }
+
+                        .th {
+                            display: table-cell;
+                            padding-right: 10px;
+                            min-width: 120px;
+                        }
+                    }
+
+                    &.item_review {
+                        display: table;
+
+                        p {
+                            display: table-cell;
+                        }
+
+                        .th {
+                            display: table-cell;
+                            padding-right: 10px;
+                            min-width: 120px;
+                        }
+                    }
+
+                    &.item_edit,
+                    &.item_delete {
+                        display: inline;
+                        padding: 0;
+                        border-bottom: none;
+
+                    }
+
+                    &.item_edit {
+                        margin-left: 75%;
+                        margin-right: 10px;
+
+                        a {
+                            margin-top: 10px;
+                            padding: 4px 7px;
+                            font-size: 11px;
+                        }
+                    }
+
+                    &.item_delete {
+                        padding-bottom: 30px;
+
+                        form {
+                            display: inline !important;
+
+                            button {
+                                margin-top: 10px;
+                                padding: 4px 7px;
+                                font-size: 11px;
+                            }
+                        }
+                    }
+                }
+                .tr:first-child {
+                    td.item_name{
+                        padding-top: 10px;
+                    }
+                }
+            }
             th {
                 display: none;
             }
